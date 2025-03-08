@@ -1,0 +1,41 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/institute-logo.png" alt="Institute Logo" class="institute-logo">
+      </a>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="research-brain-science.html">研究</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+    /* 强制应用从中间向两侧展开的导航条动画 */
+    .nav-link {
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .nav-link::after {
+        content: '' !important;
+        position: absolute !important;
+        width: 0 !important;
+        height: 2px !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        background-color: white !important;
+        transition: all 0.3s ease !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .nav-link:hover::after {
+        width: 100% !important;
+    }
+</style> 

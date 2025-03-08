@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Projects | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .project-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .badge-funding {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .badge-collaboration {
+            background-color: #6f42c1;
+            color: white;
+        }
+        
+        .badge-ongoing {
+            background-color: #0066cc;
+            color: white;
+        }
+        
+        .badge-completed {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        /* 修复下拉菜单箭头问题 */
+        .dropdown-toggle::after {
+            display: inline-block !important;
+            margin-left: 0.255em !important;
+            vertical-align: 0.255em !important;
+            content: "" !important;
+            border-top: 0.3em solid !important;
+            border-right: 0.3em solid transparent !important;
+            border-bottom: 0 !important;
+            border-left: 0.3em solid transparent !important;
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background-color: transparent !important;
+            transform: none !important;
+            transition: none !important;
+            left: auto !important;
+        }
+        
+        /* 为导航链接单独设置样式，不影响下拉箭头 */
+        .nav-link:not(.dropdown-toggle)::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 0 !important;
+            height: 2px !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            background-color: white !important;
+            transition: all 0.3s ease !important;
+            transform: translateX(-50%) !important;
+        }
+        
+        .nav-link:not(.dropdown-toggle):hover::after {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item active" href="projects.html">Projects</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <select class="ms-3 language-selector">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Research Projects</h1>
+            <p class="lead">Exploring the frontiers of knowledge through innovative research</p>
+            <div class="chinese">
+                <h2>研究项目</h2>
+                <p>通过创新研究探索知识前沿</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Categories -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Our Focus Areas</h2>
+                <div class="chinese mb-4">
+                    <p>我们的重点研究领域</p>
+                </div>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <button class="btn btn-outline-primary m-2 filter-btn active" data-filter="all">All Projects</button>
+                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="ai-computing">AI & Computing</button>
+                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="biotech-medical">Biotech & Medical</button>
+                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="energy-environment">Energy & Environment</button>
+                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="materials-science">Materials Science</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="chinese mb-4">
+                <p>精选项目</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="ai-computing">
+                    <div class="project-card">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge badge-ongoing">Ongoing</span>
+                                <span class="project-meta">2021-2024</span>
+                            </div>
+                            <h5>Quantum Machine Learning for Drug Discovery</h5>
+                            <p class="project-meta">
+                                <strong>Principal Investigator:</strong> Prof. Jennifer Smith<br>
+                                <strong>Funding:</strong> National Science Foundation
+                            </p>
+                            <p>Development of quantum algorithms to accelerate drug discovery and design processes, with applications in treatment of neurodegenerative diseases.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
+                                <span class="badge badge-funding">₹2.5 Crore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="biotech-medical">
+                    <div class="project-card">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge badge-ongoing">Ongoing</span>
+                                <span class="project-meta">2022-2025</span>
+                            </div>
+                            <h5>CRISPR-Based Diagnostic Tools for Infectious Diseases</h5>
+                            <p class="project-meta">
+                                <strong>Principal Investigator:</strong> Dr. Michael Chen<br>
+                                <strong>Funding:</strong> Ministry of Health
+                            </p>
+                            <p>Development of rapid, accurate, and affordable diagnostic tools for infectious diseases using CRISPR-Cas technology.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
+                                <span class="badge badge-collaboration">Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="energy-environment">
+                    <div class="project-card">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge badge-ongoing">Ongoing</span>
+                                <span class="project-meta">2022-2024</span>
+                            </div>
+                            <h5>Next-Generation Solar Cells with Enhanced Efficiency</h5>
+                            <p class="project-meta">
+                                <strong>Principal Investigator:</strong> Dr. Sarah Johnson<br>
+                                <strong>Funding:</strong> Department of Energy
+                            </p>
+                            <p>Research and development of perovskite solar cells with improved stability and efficiency for broader commercial applications.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
+                                <span class="badge badge-funding">₹1.8 Crore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="materials-science">
+                    <div class="project-card">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge badge-completed">Completed</span>
+                                <span class="project-meta">2020-2022</span>
+                            </div>
+                            <h5>Self-Healing Composite Materials for Infrastructure</h5>
+                            <p class="project-meta">
+                                <strong>Principal Investigator:</strong> Prof. Robert Miller<br>
+                                <strong>Funding:</strong> Department of Transportation
+                            </p>
+                            <p>Development of advanced composite materials with self-healing properties for more durable and sustainable infrastructure applications.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
+                                <span class="badge badge-funding">₹1.2 Crore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="ai-computing">
+                    <div class="project-card">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge badge-ongoing">Ongoing</span>
+                                <span class="project-meta">2021-2023</span>
+                            </div>
+                            <h5>Energy-Efficient Neural Processing Units</h5>
+                            <p class="project-meta">
+                                <strong>Principal Investigator:</strong> Prof. David Liu<br>
+                                <strong>Funding:</strong> Ministry of Electronics & IT
+                            </p>
+                            <p>Designing specialized hardware accelerators for neural networks with 80% lower energy consumption for edge computing applications.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
+                                <span class="badge badge-collaboration">Industry Partnership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="biotech-medical">
+                    <div class="project-card">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge badge-completed">Completed</span>
+                                <span class="project-meta">2019-2022</span>
+                            </div>
+                            <h5>Microbiome Engineering for Gut Health</h5>
+                            <p class="project-meta">
+                                <strong>Principal Investigator:</strong> Dr. Elena Rodriguez<br>
+                                <strong>Funding:</strong> Ministry of Health
+                            </p>
+                            <p>Investigating the role of gut microbiome in inflammatory diseases and developing targeted microbial interventions for treatment.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
+                                <span class="badge badge-funding">₹1.5 Crore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="all-projects.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Impact -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Research Impact</h2>
+            <div class="chinese mb-4">
+                <p>研究影响</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 text-center">
+                    <div class="display-4 text-primary mb-2">₹8.6+ Cr</div>
+                    <p class="lead">Grant Funding Secured</p>
+                    <div class="chinese">
+                        <p>获得研究资助</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 text-center">
+                    <div class="display-4 text-primary mb-2">18</div>
+                    <p class="lead">Active Research Projects</p>
+                    <div class="chinese">
+                        <p>进行中的研究项目</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 text-center">
+                    <div class="display-4 text-primary mb-2">12</div>
+                    <p class="lead">Industry Partnerships</p>
+                    <div class="chinese">
+                        <p>产业合作伙伴</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 text-center">
+                    <div class="display-4 text-primary mb-2">9</div>
+                    <p class="lead">Patents Filed</p>
+                    <div class="chinese">
+                        <p>申请专利</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Opportunities -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Funding Opportunities</h2>
+            <div class="chinese mb-4">
+                <p>资助机会</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Graduate Student Research Grants</h5>
+                            <p class="text-muted mb-3">Deadline: March 15, 2023</p>
+                            <p>Funding available for graduate students to conduct independent research under faculty supervision in any of our focus areas.</p>
+                            <div class="chinese mb-3">
+                                <p>为研究生提供在我们研究领域的任何方向开展研究的资助。</p>
+                            </div>
+                            <ul class="mb-4">
+                                <li>Duration: 1 year</li>
+                                <li>Funding amount: Up to ₹5 lakhs</li>
+                                <li>Eligibility: Currently enrolled graduate students</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Industry-Academia Collaborative Grants</h5>
+                            <p class="text-muted mb-3">Deadline: Rolling applications</p>
+                            <p>Support for collaborative research projects between our faculty and industry partners addressing real-world challenges.</p>
+                            <div class="chinese mb-3">
+                                <p>支持我们的教师与行业合作伙伴之间的合作研究项目，解决实际挑战。</p>
+                            </div>
+                            <ul class="mb-4">
+                                <li>Duration: 1-3 years</li>
+                                <li>Funding amount: Up to ₹50 lakhs (matching funds required)</li>
+                                <li>Eligibility: Faculty members with industry partnerships</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2>Interested in Collaborating on a Research Project?</h2>
+                    <p class="lead">We welcome collaboration opportunities with researchers, institutions, and industry partners</p>
+                    <div class="chinese mb-3">
+                        <p>我们欢迎与研究人员、机构和行业合作伙伴的合作机会</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="collaboration.html" class="btn btn-light btn-lg">Explore Opportunities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script>
+        // Language switcher functionality
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+
+        // Project filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filter = this.getAttribute('data-filter');
+                
+                // Show all items if filter is 'all'
+                if (filter === 'all') {
+                    document.querySelectorAll('.project-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else {
+                    // Show/hide items based on category
+                    document.querySelectorAll('.project-item').forEach(item => {
+                        if (item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

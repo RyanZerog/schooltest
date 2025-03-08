@@ -1,0 +1,147 @@
+/* 统一导航栏样式 */
+.navbar {
+    background-color: #003366;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 76px;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin: 0 10px;
+    position: relative !important;
+    font-weight: 500;
+    padding: 8px 0;
+    overflow: hidden !important;
+}
+
+.nav-link:hover {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.nav-link::after {
+    content: '' !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 2px !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    background-color: white !important;
+    transition: all 0.3s ease !important;
+    transform: translateX(-50%) !important;
+}
+
+.nav-link:hover::after {
+    width: 100% !important;
+}
+
+.dropdown-toggle::after {
+    display: inline-block !important;
+    margin-left: 0.255em !important;
+    vertical-align: 0.255em !important;
+    content: "" !important;
+    border-top: 0.3em solid !important;
+    border-right: 0.3em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.3em solid transparent !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+    transform: none !important;
+    transition: none !important;
+    left: auto !important;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+}
+
+.dropdown-item {
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0,51,102,0.05);
+    color: #003366;
+}
+
+.language-selector {
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.language-selector option {
+    background-color: #003366;
+    color: white;
+}
+
+/* 确保在不同分辨率下保持一致 */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #003366;
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .nav-link {
+        margin: 5px 0;
+    }
+}
+
+/* 确保导航栏高度固定一致 */
+.navbar > .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 特别处理下拉菜单 */
+.dropdown-toggle:hover::after {
+    width: auto !important;
+}
+
+/* 活动菜单项样式 */
+.navbar .nav-item .active {
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+.navbar .nav-item .active::after {
+    width: 0 !important; /* 即使是活动项也不显示横线，除非悬停 */
+}
+
+/* 修复特定的下拉菜单按钮样式 */
+.nav-item.dropdown .dropdown-toggle::after {
+    border-top: 0.3em solid !important;
+    border-right: 0.3em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.3em solid transparent !important;
+    vertical-align: middle !important;
+} 

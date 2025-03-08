@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!-- ... existing code ... -->
+    <link rel="stylesheet" href="css/header.css">
+    <!-- ... existing code ... -->
+</head>
+<body>
+    <!-- 在页面最前面插入导航栏 -->
+    <div id="header-placeholder"></div>
+    
+    <!-- ... existing code ... -->
+    
+    <script>
+        // 加载头部导航栏
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+            
+        // ... existing code ...
+    </script>
+</body>
+</html> 

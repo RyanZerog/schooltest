@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patents | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/unified-navbar.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .filter-bar {
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .patent-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .patent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .patent-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .patent-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .patent-tag {
+            background-color: rgba(0,51,102,0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .year-divider {
+            position: relative;
+            margin: 50px 0 30px;
+            text-align: center;
+        }
+        
+        .year-divider h3 {
+            background-color: #fff;
+            display: inline-block;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            color: var(--primary-color);
+        }
+        
+        .year-divider:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+        }
+        
+        .patent-search {
+            position: relative;
+        }
+        
+        .patent-search input {
+            padding-left: 40px;
+            border-radius: 30px;
+        }
+        
+        .patent-search i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item active" href="patents.html">Patents</a></li>
+                            <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <select class="language-selector ms-lg-3">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Patents</h1>
+            <p class="lead">Innovations and intellectual property developed by our research teams</p>
+            <div class="chinese">
+                <h2>专利</h2>
+                <p>我们研究团队开发的创新成果和知识产权</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Patents Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="row align-items-center">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="patent-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" id="patentSearch" placeholder="Search patents...">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="text-md-end">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="biotechnology">Biotechnology</button>
+                            <button class="filter-btn" data-filter="ai">AI & Computing</button>
+                            <button class="filter-btn" data-filter="energy">Energy</button>
+                            <button class="filter-btn" data-filter="materials">Materials</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-divider">
+                <h3>2023</h3>
+            </div>
+            
+            <!-- Patent 1 -->
+            <div class="patent-card" data-category="biotechnology">
+                <h4>Method and System for Rapid Detection of Viral Pathogens Using Nanopore Technology</h4>
+                <div class="patent-meta">
+                    <span><strong>Inventors:</strong> Zhang Li, Johnson Sarah, Chen Michael</span>
+                    <span class="ms-3"><strong>Patent No:</strong> CN123456789A</span>
+                    <span class="ms-3"><strong>Filed:</strong> March 15, 2023</span>
+                </div>
+                <p>A novel method utilizing nanopore technology for rapid and accurate detection of viral pathogens in biological samples. The system integrates machine learning algorithms to identify viral signatures in real-time, enabling early diagnosis and intervention in infectious disease management.</p>
+                <div class="chinese">
+                    <p>一种利用纳米孔技术在生物样本中快速准确检测病毒病原体的新方法。该系统集成了机器学习算法，可实时识别病毒特征，实现传染病管理中的早期诊断和干预。</p>
+                </div>
+                <div class="patent-tags">
+                    <span class="patent-tag">Nanopore Technology</span>
+                    <span class="patent-tag">Viral Detection</span>
+                    <span class="patent-tag">Machine Learning</span>
+                    <span class="patent-tag">Diagnostic Methods</span>
+                </div>
+            </div>
+            
+            <!-- Patent 2 -->
+            <div class="patent-card" data-category="ai">
+                <h4>Quantum Neural Network Architecture for Enhanced Machine Learning Processing</h4>
+                <div class="patent-meta">
+                    <span><strong>Inventors:</strong> Wang David, Smith John, Kumar Rahul</span>
+                    <span class="ms-3"><strong>Patent No:</strong> CN987654321B</span>
+                    <span class="ms-3"><strong>Filed:</strong> January 27, 2023</span>
+                </div>
+                <p>An advanced quantum computing architecture that integrates quantum principles with neural network design to significantly improve processing capabilities for complex machine learning tasks. The invention enables exponential speedup in training deep learning models while reducing energy consumption.</p>
+                <div class="chinese">
+                    <p>一种将量子原理与神经网络设计相结合的先进量子计算架构，显著提高了复杂机器学习任务的处理能力。该发明实现了深度学习模型训练的指数级加速，同时降低了能源消耗。</p>
+                </div>
+                <div class="patent-tags">
+                    <span class="patent-tag">Quantum Computing</span>
+                    <span class="patent-tag">Neural Networks</span>
+                    <span class="patent-tag">Deep Learning</span>
+                    <span class="patent-tag">Energy Efficient Computing</span>
+                </div>
+            </div>
+
+            <div class="year-divider">
+                <h3>2022</h3>
+            </div>
+            
+            <!-- Patent 3 -->
+            <div class="patent-card" data-category="energy">
+                <h4>Perovskite-Silicon Tandem Solar Cell with Enhanced Conversion Efficiency</h4>
+                <div class="patent-meta">
+                    <span><strong>Inventors:</strong> Liu Mei, Garcia Antonio, Patel Anika</span>
+                    <span class="ms-3"><strong>Patent No:</strong> CN246813579C</span>
+                    <span class="ms-3"><strong>Filed:</strong> November 8, 2022</span>
+                </div>
+                <p>A novel tandem solar cell design combining perovskite and silicon technologies to achieve significantly higher photovoltaic conversion efficiency. The layered structure optimizes light absorption across multiple wavelengths and includes innovative interface materials to minimize energy losses.</p>
+                <div class="chinese">
+                    <p>一种新型叠层太阳能电池设计，结合钙钛矿和硅技术，实现显著更高的光伏转换效率。该分层结构优化了多波长的光吸收，并包含创新的界面材料以最小化能量损失。</p>
+                </div>
+                <div class="patent-tags">
+                    <span class="patent-tag">Solar Energy</span>
+                    <span class="patent-tag">Perovskite</span>
+                    <span class="patent-tag">Photovoltaics</span>
+                    <span class="patent-tag">Renewable Energy</span>
+                </div>
+            </div>
+            
+            <!-- Patent 4 -->
+            <div class="patent-card" data-category="materials">
+                <h4>Biodegradable Smart Polymer with Controlled Drug Release Properties</h4>
+                <div class="patent-meta">
+                    <span><strong>Inventors:</strong> Chen Li, Rodriguez Elena, Williams Thomas</span>
+                    <span class="ms-3"><strong>Patent No:</strong> CN135792468D</span>
+                    <span class="ms-3"><strong>Filed:</strong> August 5, 2022</span>
+                </div>
+                <p>A biodegradable polymer system that responds to specific physiological conditions to control drug release rates. The material incorporates environmentally friendly components and provides programmable degradation timelines, making it ideal for targeted therapeutic delivery applications.</p>
+                <div class="chinese">
+                    <p>一种响应特定生理条件以控制药物释放速率的生物可降解聚合物系统。该材料包含环保成分，并提供可编程的降解时间线，非常适合靶向治疗递送应用。</p>
+                </div>
+                <div class="patent-tags">
+                    <span class="patent-tag">Biodegradable Polymers</span>
+                    <span class="patent-tag">Drug Delivery</span>
+                    <span class="patent-tag">Smart Materials</span>
+                    <span class="patent-tag">Medical Applications</span>
+                </div>
+            </div>
+
+            <div class="year-divider">
+                <h3>2021</h3>
+            </div>
+            
+            <!-- Patent 5 -->
+            <div class="patent-card" data-category="biotechnology">
+                <h4>CRISPR-Based Method for Targeted Genetic Modification in Agricultural Crops</h4>
+                <div class="patent-meta">
+                    <span><strong>Inventors:</strong> Zhang Wei, Johnson Robert, Gupta Priya</span>
+                    <span class="ms-3"><strong>Patent No:</strong> CN864297531E</span>
+                    <span class="ms-3"><strong>Filed:</strong> October 12, 2021</span>
+                </div>
+                <p>An advanced gene editing technique utilizing CRISPR-Cas systems for precise genetic modifications in agricultural crops. The method includes proprietary delivery mechanisms and editing protocols that enhance success rates while minimizing off-target effects, specifically designed for improving crop yields and resistance to environmental stressors.</p>
+                <div class="chinese">
+                    <p>一种利用CRISPR-Cas系统对农作物进行精确基因修饰的先进基因编辑技术。该方法包括专有的递送机制和编辑协议，在提高成功率的同时最小化脱靶效应，专门设计用于提高作物产量和对环境胁迫的抗性。</p>
+                </div>
+                <div class="patent-tags">
+                    <span class="patent-tag">CRISPR</span>
+                    <span class="patent-tag">Gene Editing</span>
+                    <span class="patent-tag">Agriculture</span>
+                    <span class="patent-tag">Food Security</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patent Application Info -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Patent Application Process</h2>
+            <div class="chinese text-center mb-5">
+                <p>专利申请流程</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-clipboard-list text-primary me-2"></i> For Researchers</h5>
+                            <p>If you are a researcher at our institute and have developed an innovation that may be patentable, please follow these steps:</p>
+                            <ol>
+                                <li>Complete an Invention Disclosure Form</li>
+                                <li>Submit to the Intellectual Property Office</li>
+                                <li>Participate in the innovation assessment meeting</li>
+                                <li>Work with our patent attorneys during the application process</li>
+                            </ol>
+                            <p>For more information, please contact our IP Office at <a href="mailto:ip@academicresearch.edu">ip@academicresearch.edu</a>.</p>
+                            <div class="chinese mt-3">
+                                <p>如果您是我们研究所的研究人员，并且开发了可能获得专利的创新成果，请按照以下步骤操作：</p>
+                                <ol>
+                                    <li>填写发明披露表</li>
+                                    <li>提交给知识产权办公室</li>
+                                    <li>参与创新评估会议</li>
+                                    <li>在申请过程中与我们的专利律师合作</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-handshake text-primary me-2"></i> For Industry Partners</h5>
+                            <p>We welcome opportunities to license our patented technologies or collaborate on further development. Our partnerships include:</p>
+                            <ul>
+                                <li>Technology licensing agreements</li>
+                                <li>Joint development projects</li>
+                                <li>Industry-sponsored research</li>
+                                <li>Startups and spinoff companies</li>
+                            </ul>
+                            <p>To explore partnership opportunities, please contact our Technology Transfer Office at <a href="mailto:tech-transfer@academicresearch.edu">tech-transfer@academicresearch.edu</a>.</p>
+                            <div class="chinese mt-3">
+                                <p>我们欢迎授权我们的专利技术或合作进一步开发的机会。我们的合作包括：</p>
+                                <ul>
+                                    <li>技术许可协议</li>
+                                    <li>联合开发项目</li>
+                                    <li>行业赞助研究</li>
+                                    <li>初创企业和衍生公司</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script>
+        // Language switcher functionality
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+
+        // Patent filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Show all items if filter is 'all'
+                if (filter === 'all') {
+                    document.querySelectorAll('.patent-card').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                } else {
+                    // Show/hide items based on category
+                    document.querySelectorAll('.patent-card').forEach(card => {
+                        if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+        // Patent search functionality
+        document.getElementById('patentSearch').addEventListener('keyup', function() {
+            const searchQuery = this.value.toLowerCase();
+            
+            document.querySelectorAll('.patent-card').forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchQuery)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

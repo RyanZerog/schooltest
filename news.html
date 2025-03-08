@@ -37,7 +37,8 @@
         .nav-link {
             color: var(--text-light) !important;
             margin: 0 10px;
-            position: relative;
+            position: relative !important;
+            overflow: hidden !important;
             font-weight: 500;
             padding: 8px 0;
         }
@@ -47,18 +48,19 @@
         }
         
         .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: white;
-            transition: width 0.3s;
+            content: '' !important;
+            position: absolute !important;
+            width: 0 !important;
+            height: 2px !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            background-color: white !important;
+            transition: all 0.3s ease !important;
+            transform: translateX(-50%) !important;
         }
         
         .nav-link:hover::after {
-            width: 100%;
+            width: 100% !important;
         }
         
         .dropdown-menu {
@@ -336,6 +338,43 @@
                 margin-bottom: 15px;
             }
         }
+        
+        /* 修复下拉菜单标头横线问题 */
+        .dropdown-toggle::after {
+            display: inline-block !important;
+            margin-left: 0.255em !important;
+            vertical-align: 0.255em !important;
+            content: "" !important;
+            border-top: 0.3em solid !important;
+            border-right: 0.3em solid transparent !important;
+            border-bottom: 0 !important;
+            border-left: 0.3em solid transparent !important;
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background-color: transparent !important;
+            transform: none !important;
+            left: auto !important;
+        }
+        
+        /* 只在鼠标悬停时显示导航项下的横线 */
+        .nav-item .nav-link::after {
+            width: 0 !important;
+        }
+        
+        .nav-item .nav-link:hover::after {
+            width: 100% !important;
+        }
+        
+        /* 活动菜单项样式 */
+        .navbar .nav-item .active {
+            color: #fff !important;
+            font-weight: 700 !important;
+        }
+        
+        .navbar .nav-item .active::after {
+            width: 0 !important;
+        }
     </style>
 </head>
 <body>
@@ -343,7 +382,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Institute Logo" height="50">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
                 <span class="ms-2">Academic Research Institute</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -353,6 +392,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="teamDropdown" role="button" data-bs-toggle="dropdown">
@@ -378,7 +420,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="news.html">News</a>
+                        <a class="nav-link active" href="news.html">News & Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="collaboration.html">Collaboration</a>
@@ -388,7 +430,7 @@
                     </li>
                     <li class="nav-item">
                         <select class="form-select form-select-sm language-selector">
-                            <option value="en" selected>English</option>
+                            <option value="en">English</option>
                             <option value="zh">中文</option>
                         </select>
                     </li>
@@ -702,56 +744,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5>Academic Research Institute</h5>
-                    <p class="chinese">学术研究院</p>
-                    <p>Advancing knowledge and innovation through collaborative research</p>
-                    <div class="chinese mb-3">
-                        <p>通过协作研究促进知识创新</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <h5>Contact Us</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 University Avenue, City, Country</p>
-                    <p><i class="fas fa-phone me-2"></i> +1 (123) 456-7890</p>
-                    <p><i class="fas fa-envelope me-2"></i> info@academicresearch.edu</p>
-                </div>
-                <div class="col-lg-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white">About Us</a></li>
-                        <li><a href="research-areas.html" class="text-white">Research Areas</a></li>
-                        <li><a href="news.html" class="text-white">News & Events</a></li>
-                        <li><a href="publications.html" class="text-white">Publications</a></li>
-                        <li><a href="opportunities.html" class="text-white">Opportunities</a></li>
-                        <li><a href="privacy-policy.html" class="text-white">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.2)">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2023 Academic Research Institute. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white">Terms of Use</a>
-                    <span class="mx-2">|</span>
-                    <a href="#" class="text-white">Privacy Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/fix-navbar.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/load-footer.js"></script>
     <script>
         // Language switcher functionality
         document.querySelector('.language-selector').addEventListener('change', function() {

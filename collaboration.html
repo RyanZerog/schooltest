@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .partner-section {
+            padding: 60px 0;
+        }
+        
+        .partner-logo {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .partner-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .process-step:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .process-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            height: 100%;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        /* 修复下拉菜单箭头问题 */
+        .dropdown-toggle::after {
+            display: inline-block !important;
+            margin-left: 0.255em !important;
+            vertical-align: 0.255em !important;
+            content: "" !important;
+            border-top: 0.3em solid !important;
+            border-right: 0.3em solid transparent !important;
+            border-bottom: 0 !important;
+            border-left: 0.3em solid transparent !important;
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background-color: transparent !important;
+            transform: none !important;
+            transition: none !important;
+            left: auto !important;
+        }
+        
+        /* 为导航链接单独设置样式，不影响下拉箭头 */
+        .nav-link:not(.dropdown-toggle)::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 0 !important;
+            height: 2px !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            background-color: white !important;
+            transition: all 0.3s ease !important;
+            transform: translateX(-50%) !important;
+        }
+        
+        .nav-link:not(.dropdown-toggle):hover::after {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <select class="ms-3 language-selector">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Collaboration</h1>
+            <p class="lead">Building partnerships to solve complex challenges together</p>
+            <div class="chinese">
+                <h2>合作</h2>
+                <p>建立伙伴关系，共同解决复杂挑战</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Collaboration Types -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Types of Collaboration</h2>
+            <div class="chinese text-center mb-5">
+                <p>合作类型</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="partner-card p-4">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-university fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Academic Partnerships</h4>
+                        <p>Collaborative research initiatives with universities and research institutions worldwide to advance scientific knowledge.</p>
+                        <div class="chinese mb-3">
+                            <p>与全球大学和研究机构的合作研究计划，推进科学知识。</p>
+                        </div>
+                        <ul class="mb-3">
+                            <li>Joint research projects</li>
+                            <li>Faculty exchange programs</li>
+                            <li>Shared laboratory facilities</li>
+                            <li>Co-supervised PhD programs</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="partner-card p-4">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-industry fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Industry Collaboration</h4>
+                        <p>Strategic partnerships with businesses to develop innovative solutions addressing real-world challenges.</p>
+                        <div class="chinese mb-3">
+                            <p>与企业建立战略合作伙伴关系，开发创新解决方案，应对现实世界的挑战。</p>
+                        </div>
+                        <ul class="mb-3">
+                            <li>Industry-sponsored research</li>
+                            <li>Technology transfer & commercialization</li>
+                            <li>R&D consulting services</li>
+                            <li>Professional development programs</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="partner-card p-4">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-globe-asia fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Government & NGO Partnerships</h4>
+                        <p>Collaboration with public sector organizations and NGOs to address policy-relevant research questions.</p>
+                        <div class="chinese mb-3">
+                            <p>与公共部门组织和非政府组织合作，解决政策相关的研究问题。</p>
+                        </div>
+                        <ul class="mb-3">
+                            <li>Policy research initiatives</li>
+                            <li>Community outreach programs</li>
+                            <li>Sustainable development projects</li>
+                            <li>Public health research</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Process -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Our Collaboration Process</h2>
+            <div class="chinese text-center mb-5">
+                <p>我们的合作流程</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-step p-4">
+                        <div class="process-number">1</div>
+                        <h4 class="mt-3">Initial Contact</h4>
+                        <p>Reach out to our collaboration team with your proposal or idea for partnership.</p>
+                        <div class="chinese">
+                            <p>联系我们的合作团队，提出您的建议或合作想法。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-step p-4">
+                        <div class="process-number">2</div>
+                        <h4 class="mt-3">Exploration Meeting</h4>
+                        <p>We'll arrange a detailed discussion to explore potential areas of collaboration.</p>
+                        <div class="chinese">
+                            <p>我们将安排详细讨论，探讨潜在的合作领域。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-step p-4">
+                        <div class="process-number">3</div>
+                        <h4 class="mt-3">Proposal Development</h4>
+                        <p>Joint development of a formal collaboration proposal and agreement.</p>
+                        <div class="chinese">
+                            <p>共同开发正式的合作提案和协议。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-step p-4">
+                        <div class="process-number">4</div>
+                        <h4 class="mt-3">Implementation</h4>
+                        <p>Project kickoff and ongoing collaboration with regular review meetings.</p>
+                        <div class="chinese">
+                            <p>项目启动和持续合作，定期审查会议。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="contact.html" class="btn btn-primary btn-lg">Start Collaboration</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Partners -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Partners</h2>
+            <div class="chinese text-center mb-5">
+                <p>我们的合作伙伴</p>
+            </div>
+            
+            <div class="row align-items-center justify-content-center g-4">
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+1" alt="Partner Logo" class="partner-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+2" alt="Partner Logo" class="partner-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+3" alt="Partner Logo" class="partner-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+4" alt="Partner Logo" class="partner-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+5" alt="Partner Logo" class="partner-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+6" alt="Partner Logo" class="partner-logo">
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <h3>University Partners</h3>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2">Stanford University, USA</li>
+                        <li class="mb-2">University of Cambridge, UK</li>
+                        <li class="mb-2">Tsinghua University, China</li>
+                        <li class="mb-2">University of Tokyo, Japan</li>
+                        <li class="mb-2">Indian Institute of Technology, India</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6 text-center text-md-start mt-4 mt-md-0">
+                    <h3>Industry Partners</h3>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2">Tech Innovations Inc.</li>
+                        <li class="mb-2">Global BioPharm Labs</li>
+                        <li class="mb-2">EcoSolutions Ltd.</li>
+                        <li class="mb-2">Advanced Materials Corp.</li>
+                        <li class="mb-2">DataSense Analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Partner Testimonials</h2>
+            <div class="chinese text-center mb-5">
+                <p>合作伙伴见证</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left fa-2x text-muted opacity-25 mb-3"></i>
+                            <p>Our collaboration with the Academic Research Institute has significantly accelerated our R&D timeline. Their expertise in quantum computing helped us overcome technical barriers we had been facing for years.</p>
+                            <div class="chinese">
+                                <p>与学术研究院的合作显著加快了我们的研发时间表。他们在量子计算方面的专业知识帮助我们克服了多年来面临的技术障碍。</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Testimonial Author" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Dr. James Wilson</h5>
+                                <p class="text-muted mb-0">CTO, Tech Innovations Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left fa-2x text-muted opacity-25 mb-3"></i>
+                            <p>The research partnership with ARI has been instrumental in developing our sustainable energy solutions. Their multidisciplinary approach and rigorous scientific methodology ensured the success of our joint projects.</p>
+                            <div class="chinese">
+                                <p>与ARI的研究合作对开发我们的可持续能源解决方案起到了重要作用。他们的多学科方法和严谨的科学方法确保了我们联合项目的成功。</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonial Author" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Prof. Sarah Chen</h5>
+                                <p class="text-muted mb-0">Research Director, EcoSolutions Ltd.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2>Ready to Start a Collaboration?</h2>
+                    <p class="lead">Contact our collaboration team to discuss partnership opportunities</p>
+                    <div class="chinese mb-3">
+                        <p>联系我们的合作团队，讨论合作机会</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script>
+        // Language switcher functionality
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html> 
