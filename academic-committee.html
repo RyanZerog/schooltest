@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Committee | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 12px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            margin: 0 10px;
+            position: relative;
+            font-weight: 500;
+            padding: 8px 0;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255,255,255,0.8) !important;
+        }
+        
+        .nav-item:not(.dropdown) .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-item:not(.dropdown) .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            padding: 10px 0;
+        }
+        
+        .dropdown-item {
+            padding: 8px 20px;
+            transition: var(--transition);
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(0,51,102,0.05);
+            color: var(--primary-color);
+        }
+        
+        .language-selector {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--border-radius);
+            padding: 5px 10px;
+        }
+        
+        .language-selector:focus {
+            box-shadow: none;
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .committee-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        .committee-chair {
+            padding: 40px 30px;
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .committee-chair::before {
+            content: 'Chair';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .committee-member {
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .committee-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn {
+            border-radius: 4px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .chinese {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .page-header .chinese {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .institution-logo {
+            max-height: 50px;
+            max-width: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .institution-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .publication-item {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .committee-quote {
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding-top: 40px;
+        }
+        
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0;
+            }
+            
+            .committee-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .committee-chair::before {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="teamDropdown" role="button" data-bs-toggle="dropdown">
+                            Research Team
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="academic-committee.html">Academic Committee</a></li>
+                            <li><a class="dropdown-item" href="faculty.html">Core Faculty</a></li>
+                            <li><a class="dropdown-item" href="management.html">Management Team</a></li>
+                            <li><a class="dropdown-item" href="students.html">PhD & Graduate Students</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research-areas.html">Research Areas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="achievementsDropdown" role="button" data-bs-toggle="dropdown">
+                            Achievements
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <select class="form-select language-selector">
+                            <option value="en">English</option>
+                            <option value="zh">中文</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Academic Committee</h1>
+            <div class="chinese">
+                <p>学术委员会</p>
+            </div>
+            <p class="lead mt-4">Distinguished international experts guiding our research vision</p>
+            <div class="chinese">
+                <p>指导我们研究愿景的杰出国际专家</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="section-title text-center">About Our Academic Committee</h2>
+                    <p class="text-center">Our Academic Committee consists of internationally renowned scholars and experts who provide strategic guidance and oversight to our research initiatives. These distinguished members bring diverse perspectives and extensive experience from top research institutions around the world, ensuring our research maintains the highest standards of academic excellence and global relevance.</p>
+                    <div class="chinese text-center">
+                        <p>我们的学术委员会由国际知名学者和专家组成，他们为我们的研究计划提供战略指导和监督。这些杰出的成员带来了来自世界各地顶尖研究机构的多元视角和丰富经验，确保我们的研究保持最高标准的学术卓越性和全球相关性。</p>
+                    </div>
+                    
+                    <div class="committee-quote text-center mt-5">
+                        <p>"Our committee is committed to fostering innovative research that addresses the most pressing challenges of our time, while nurturing the next generation of scientific leaders."</p>
+                        <footer class="blockquote-footer">Prof. John Smith, <cite>Committee Chair</cite></footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Chair -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto">
+                    <div class="committee-chair text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/42.jpg" class="committee-img" alt="Committee Chair">
+                        <h3>Prof. David Anderson, Ph.D.</h3>
+                        <p class="text-muted">MIT, USA</p>
+                        <p>Expert in Artificial Intelligence and Machine Learning</p>
+                        <div class="chinese">
+                            <p>人工智能和机器学习专家</p>
+                        </div>
+                        
+                        <p>Professor Anderson is a world-renowned expert in artificial intelligence and machine learning. With over 20 years of research experience at MIT, he has pioneered several groundbreaking technologies that have shaped the field. He has published more than 100 papers in top-tier journals and has been awarded 5 patents for his innovations.</p>
+                        
+                        <div class="chinese mb-4">
+                            <p>Anderson教授是人工智能和机器学习的世界著名专家。他在麻省理工学院拥有超过20年的研究经验，开创了多项改变该领域的突破性技术。他在顶级期刊上发表了100多篇论文，并因其创新获得了5项专利。</p>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5>Research Interests</h5>
+                                <ul class="list-unstyled">
+                                    <li>Artificial Intelligence</li>
+                                    <li>Machine Learning</li>
+                                    <li>AI Ethics and Governance</li>
+                                    <li>Computational Complexity</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Awards & Recognition</h5>
+                                <ul class="list-unstyled">
+                                    <li>National Science Award (2020)</li>
+                                    <li>IEEE Distinguished Research Award (2018)</li>
+                                    <li>ACM Computing Prize (2015)</li>
+                                    <li>Presidential Medal for Technology (2012)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links mt-4">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-google"></i></a>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="profile-anderson.html" class="btn btn-primary">Full Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Members -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Committee Members</h2>
+            <div class="chinese text-center mb-5">
+                <p>委员会成员</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Member 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="committee-member text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/female/32.jpg" class="committee-img" alt="Committee Member">
+                        <h4>Prof. Sarah Chen, Ph.D.</h4>
+                        <p class="text-muted">MIT, USA</p>
+                        <p>Expert in Biotechnology and Genetic Engineering</p>
+                        <div class="chinese">
+                            <p>生物技术和基因工程专家</p>
+                        </div>
+                        
+                        <p class="mt-3">Professor Chen leads groundbreaking research in genetic engineering technologies with applications in personalized medicine and disease treatment.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="profile-chen.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="committee-member text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/67.jpg" class="committee-img" alt="Committee Member">
+                        <h4>Prof. Michael Rodriguez, Ph.D.</h4>
+                        <p class="text-muted">Caltech, USA</p>
+                        <p>Expert in Sustainable Energy and Climate Science</p>
+                        <div class="chinese">
+                            <p>可持续能源和气候科学专家</p>
+                        </div>
+                        
+                        <p class="mt-3">Professor Rodriguez's research focuses on developing innovative renewable energy technologies to address global climate challenges.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="profile-rodriguez.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="committee-member text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/23.jpg" class="committee-img" alt="Committee Member">
+                        <h4>Prof. David Williams, Ph.D.</h4>
+                        <p class="text-muted">Harvard University, USA</p>
+                        <p>Expert in Nanomaterials and Advanced Manufacturing</p>
+                        <div class="chinese">
+                            <p>纳米材料和先进制造专家</p>
+                        </div>
+                        
+                        <p class="mt-3">Professor Williams pioneers research in nanomaterials design and fabrication techniques for next-generation electronics and medical devices.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="profile-williams.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="committee-member text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/female/45.jpg" class="committee-img" alt="Committee Member">
+                        <h4>Prof. Jennifer Kim, Ph.D.</h4>
+                        <p class="text-muted">UC Berkeley, USA</p>
+                        <p>Expert in Neuroscience and Brain-Computer Interfaces</p>
+                        <div class="chinese">
+                            <p>神经科学和脑机接口专家</p>
+                        </div>
+                        
+                        <p class="mt-3">Professor Kim leads cutting-edge research in neural interfaces, developing technologies that could help treat neurological disorders.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="profile-kim.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="committee-member text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/55.jpg" class="committee-img" alt="Committee Member">
+                        <h4>Prof. Robert Jackson, Ph.D.</h4>
+                        <p class="text-muted">Princeton University, USA</p>
+                        <p>Expert in Data Science and AI Ethics</p>
+                        <div class="chinese">
+                            <p>数据科学和人工智能伦理专家</p>
+                        </div>
+                        
+                        <p class="mt-3">Professor Jackson's research examines the ethical implications of artificial intelligence and promotes responsible AI development frameworks.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="profile-jackson.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="committee-member text-center">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/female/55.jpg" class="committee-img" alt="Committee Member">
+                        <h4>Prof. Elizabeth Miller, Ph.D.</h4>
+                        <p class="text-muted">University of Chicago, USA</p>
+                        <p>Expert in Immunology and Vaccine Development</p>
+                        <div class="chinese">
+                            <p>免疫学和疫苗开发专家</p>
+                        </div>
+                        
+                        <p class="mt-3">Professor Miller is a pioneer in vaccine technology, with research focused on developing rapid-response platforms for emerging infectious diseases.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="profile-miller.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Functions -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Committee Functions</h2>
+            <div class="chinese text-center mb-5">
+                <p>委员会职能</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-compass fa-3x text-primary mb-3"></i>
+                            <h4>Strategic Direction</h4>
+                            <p>Guiding the institute's research focus and long-term scientific vision to address emerging challenges and opportunities.</p>
+                            <div class="chinese">
+                                <p>指导研究所的研究重点和长期科学愿景，以应对新兴挑战和机遇。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                            <h4>Quality Assurance</h4>
+                            <p>Ensuring that all research conducted at the institute meets the highest standards of scientific rigor and integrity.</p>
+                            <div class="chinese">
+                                <p>确保研究所进行的所有研究都符合最高标准的科学严谨性和诚信。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
+                            <h4>Global Partnerships</h4>
+                            <p>Facilitating international collaborations and partnerships with leading research institutions and industry partners.</p>
+                            <div class="chinese">
+                                <p>促进与领先研究机构和行业合作伙伴的国际合作。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                            <h4>Resource Allocation</h4>
+                            <p>Advising on the allocation of research resources and funding to maximize scientific impact and return on investment.</p>
+                            <div class="chinese">
+                                <p>就研究资源和资金的分配提供建议，以最大化科学影响力和投资回报。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-graduate fa-3x text-primary mb-3"></i>
+                            <h4>Talent Development</h4>
+                            <p>Supporting the recruitment and development of exceptional research talent and fostering the next generation of scientific leaders.</p>
+                            <div class="chinese">
+                                <p>支持杰出研究人才的招募和发展，培养下一代科学领袖。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-search-plus fa-3x text-primary mb-3"></i>
+                            <h4>Program Evaluation</h4>
+                            <p>Conducting periodic reviews of research programs to assess progress, impact, and alignment with the institute's mission.</p>
+                            <div class="chinese">
+                                <p>定期审查研究计划，评估进展、影响和与研究所使命的一致性。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Institutions -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Partner Institutions</h2>
+            <div class="chinese text-center mb-5">
+                <p>合作机构</p>
+            </div>
+            
+            <div class="row align-items-center text-center g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://via.placeholder.com/150x50?text=Stanford" class="institution-logo" alt="Stanford">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://via.placeholder.com/150x50?text=MIT" class="institution-logo" alt="MIT">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://via.placeholder.com/150x50?text=Caltech" class="institution-logo" alt="Caltech">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://via.placeholder.com/150x50?text=Harvard" class="institution-logo" alt="Harvard">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://via.placeholder.com/150x50?text=Berkeley" class="institution-logo" alt="Berkeley">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://via.placeholder.com/150x50?text=Princeton" class="institution-logo" alt="Princeton">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2>Interested in Collaborating with Our Committee?</h2>
+                    <p class="lead">Our academic committee welcomes opportunities for collaboration with researchers and institutions worldwide</p>
+                    <div class="chinese mb-3">
+                        <p>我们的学术委员会欢迎与全球研究人员和机构合作的机会</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Academic Research Institute</h5>
+                    <p class="chinese">学术研究院</p>
+                    <p>Advancing knowledge and innovation through collaborative research</p>
+                    <div class="chinese mb-3">
+                        <p>通过协作研究促进知识创新</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 University Avenue, City, Country</p>
+                    <p><i class="fas fa-phone me-2"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@academicresearch.edu</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="research-areas.html" class="text-white">Research Areas</a></li>
+                        <li><a href="news.html" class="text-white">News & Events</a></li>
+                        <li><a href="publications.html" class="text-white">Publications</a></li>
+                        <li><a href="opportunities.html" class="text-white">Opportunities</a></li>
+                        <li><a href="privacy-policy.html" class="text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.2)">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Academic Research Institute. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white">Terms of Use</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="text-white">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Language switcher functionality would go here
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html>

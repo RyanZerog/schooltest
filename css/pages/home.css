@@ -1,0 +1,143 @@
+.hero-carousel {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.carousel-item {
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.5s ease;
+}
+
+.carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.carousel-caption {
+    bottom: 50%;
+    transform: translateY(50%);
+    max-width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.carousel-caption h1, 
+.carousel-caption p, 
+.carousel-caption .chinese, 
+.carousel-caption .btn {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.carousel-indicators {
+    margin-bottom: 3rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: white;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    width: 15px;
+    height: 15px;
+    background-color: var(--secondary-color);
+}
+
+.news-card {
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    border: none;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.research-area {
+    background-color: var(--accent-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.research-area:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.team-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 450px;
+    }
+    
+    .carousel-caption {
+        padding-bottom: 20px;
+        bottom: 40%;
+    }
+    
+    .carousel-caption h1 {
+        font-size: 2rem;
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+} 

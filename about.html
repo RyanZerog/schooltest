@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Copy the CSS from index.html here */
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Include the rest of the CSS from index.html */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 12px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            margin: 0 10px;
+            position: relative;
+            font-weight: 500;
+            padding: 8px 0;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255,255,255,0.8) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            padding: 10px 0;
+        }
+        
+        .dropdown-item {
+            padding: 8px 20px;
+            transition: var(--transition);
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(0,51,102,0.05);
+            color: var(--primary-color);
+        }
+        
+        .language-selector {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--border-radius);
+            padding: 5px 10px;
+        }
+        
+        .language-selector:focus {
+            box-shadow: none;
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?university,research') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 180px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-section h1 {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .news-card {
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            border: none;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .research-area {
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .research-area:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .team-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn {
+            border-radius: 4px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding-top: 40px;
+        }
+        
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .chinese {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .hero-section .chinese {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 120px 0;
+            }
+            
+            .team-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Same as in index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="teamDropdown" role="button" data-bs-toggle="dropdown">
+                            Research Team
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
+                            <li><a class="dropdown-item" href="faculty.html">Core Faculty</a></li>
+                            <li><a class="dropdown-item" href="management.html">Management Team</a></li>
+                            <li><a class="dropdown-item" href="students.html">PhD & Graduate Students</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research-areas.html">Research Areas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="achievementsDropdown" role="button" data-bs-toggle="dropdown">
+                            Achievements
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <select class="form-select form-select-sm language-selector">
+                            <option value="en" selected>English</option>
+                            <option value="zh">中文</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">About Our Institute</h1>
+            <div class="chinese">
+                <h2>关于我们的研究院</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Our Mission</h2>
+                    <p class="lead">To advance scientific knowledge and foster innovation through collaborative research.</p>
+                    <p>Our institute is committed to pushing the boundaries of scientific knowledge through rigorous research, fostering international collaboration, and addressing critical global challenges through innovative solutions.</p>
+                    <p>We strive to create an environment where researchers from diverse backgrounds can thrive and contribute to scientific advancement in their respective fields.</p>
+                    <div class="chinese mt-3">
+                        <h3>我们的使命</h3>
+                        <p>通过协作研究推进科学知识和促进创新。我们致力于通过严谨的研究推动科学知识的边界，促进国际合作，并通过创新解决方案应对关键的全球挑战。我们努力创造一个环境，使来自不同背景的研究人员能够茁壮成长并为各自领域的科学进步做出贡献。</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Our Vision</h2>
+                    <p class="lead">To be a world-leading research institute that drives transformative change.</p>
+                    <p>We envision a future where our research institute is recognized globally as a center of excellence, producing breakthrough discoveries that translate into tangible benefits for society.</p>
+                    <p>Our goal is to foster a new generation of researchers and leaders who will continue to innovate and address the complex challenges of our ever-changing world.</p>
+                    <div class="chinese mt-3">
+                        <h3>我们的愿景</h3>
+                        <p>成为推动变革的世界领先研究机构。我们展望未来，我们的研究院将被全球公认为卓越中心，产生突破性发现，转化为社会的切实利益。我们的目标是培养新一代研究人员和领导者，他们将继续创新并应对我们不断变化的世界中的复杂挑战。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Our History</h2>
+            <div class="text-center mb-5">
+                <p class="lead">Tracing our journey of excellence and innovation</p>
+                <div class="chinese">
+                    <p>追溯我们卓越和创新的历程</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item clearfix">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content timeline-left">
+                        <div class="timeline-year">2010</div>
+                        <h4>Founding of the Institute</h4>
+                        <p>The Academic Research Institute was established with an initial focus on biotechnology and medical research.</p>
+                        <div class="chinese">
+                            <p>学术研究院成立，最初专注于生物技术和医学研究。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item clearfix">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content timeline-right">
+                        <div class="timeline-year">2013</div>
+                        <h4>Expansion into AI and Computing</h4>
+                        <p>The institute broadened its research scope to include artificial intelligence and advanced computing technologies.</p>
+                        <div class="chinese">
+                            <p>研究院扩大了研究范围，包括人工智能和先进计算技术。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item clearfix">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content timeline-left">
+                        <div class="timeline-year">2016</div>
+                        <h4>International Partnerships</h4>
+                        <p>Established key partnerships with leading universities and research organizations worldwide.</p>
+                        <div class="chinese">
+                            <p>与全球领先大学和研究机构建立了关键合作伙伴关系。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item clearfix">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content timeline-right">
+                        <div class="timeline-year">2019</div>
+                        <h4>Sustainable Energy Initiative</h4>
+                        <p>Launched a dedicated research program focusing on renewable energy and sustainability solutions.</p>
+                        <div class="chinese">
+                            <p>启动了专注于可再生能源和可持续发展解决方案的专项研究计划。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item clearfix">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content timeline-left">
+                        <div class="timeline-year">2023</div>
+                        <h4>Cutting-Edge Research Complex</h4>
+                        <p>Opened a state-of-the-art research facility with advanced laboratories and collaboration spaces.</p>
+                        <div class="chinese">
+                            <p>开设了一个拥有先进实验室和协作空间的最先进研究设施。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Core Values</h2>
+            <div class="text-center mb-5">
+                <p class="lead">The principles that guide our research and collaboration</p>
+                <div class="chinese">
+                    <p>指导我们研究和合作的原则</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4>Scientific Excellence</h4>
+                        <p>We are committed to maintaining the highest standards of scientific rigor and integrity in all our research endeavors.</p>
+                        <div class="chinese">
+                            <p>科学卓越：我们致力于在所有研究工作中保持最高标准的科学严谨和诚信。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Collaboration</h4>
+                        <p>We believe in the power of collaborative research that brings together diverse perspectives and expertise.</p>
+                        <div class="chinese">
+                            <p>协作：我们相信协作研究的力量，它汇集了多样化的观点和专业知识。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>We foster a culture of innovation that encourages creative thinking and novel approaches to complex problems.</p>
+                        <div class="chinese">
+                            <p>创新：我们培养创新文化，鼓励创造性思维和解决复杂问题的新方法。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Global Impact</h4>
+                        <p>We strive to conduct research that addresses global challenges and contributes to a better future for humanity.</p>
+                        <div class="chinese">
+                            <p>全球影响：我们努力开展解决全球挑战并为人类更美好未来做出贡献的研究。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Education & Mentorship</h4>
+                        <p>We are dedicated to nurturing the next generation of researchers through mentorship and educational programs.</p>
+                        <div class="chinese">
+                            <p>教育与指导：我们致力于通过指导和教育计划培养下一代研究人员。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Ethical Responsibility</h4>
+                        <p>We conduct our research with a strong sense of ethical responsibility and consideration for societal implications.</p>
+                        <div class="chinese">
+                            <p>道德责任：我们以强烈的道德责任感和对社会影响的考虑开展研究。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organisation Structure -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Organizational Structure</h2>
+            <div class="text-center mb-5">
+                <p class="lead">Understanding our institute's framework and departments</p>
+                <div class="chinese">
+                    <p>了解我们研究院的框架和部门</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <div class="text-center mb-4">
+                            <h4>Academic Research Institute</h4>
+                            <p class="text-muted">Organizational Chart</p>
+                        </div>
+                        
+                        <div class="org-chart">
+                            <!-- You can replace this with an actual organizational chart image or create a CSS-based chart -->
+                            <img src="https://via.placeholder.com/800x400?text=Organizational+Chart" alt="Organizational Chart" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Main Departments:</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>Research Divisions</strong>
+                                    <ul>
+                                        <li>Biotechnology and Medical Research</li>
+                                        <li>Artificial Intelligence and Computing</li>
+                                        <li>Sustainable Energy and Environmental Science</li>
+                                    </ul>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Administrative Departments</strong>
+                                    <ul>
+                                        <li>Human Resources</li>
+                                        <li>Finance and Grants Management</li>
+                                        <li>International Relations</li>
+                                    </ul>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Support Services</strong>
+                                    <ul>
+                                        <li>Laboratory Management</li>
+                                        <li>IT and Technical Support</li>
+                                        <li>Communications and Public Relations</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            
+                            <div class="chinese mt-3">
+                                <h5>主要部门：</h5>
+                                <p>研究部门：生物技术和医学研究，人工智能和计算，可持续能源和环境科学</p>
+                                <p>行政部门：人力资源，财务和拨款管理，国际关系</p>
+                                <p>支持服务：实验室管理，IT和技术支持，通讯和公共关系</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as in index.html) -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Academic Research Institute</h5>
+                    <p class="chinese">学术研究院</p>
+                    <p>Advancing knowledge and innovation through collaborative research</p>
+                    <div class="chinese mb-3">
+                        <p>通过协作研究促进知识创新</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 University Avenue, City, Country</p>
+                    <p><i class="fas fa-phone me-2"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@academicresearch.edu</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="research-areas.html" class="text-white">Research Areas</a></li>
+                        <li><a href="news.html" class="text-white">News & Events</a></li>
+                        <li><a href="publications.html" class="text-white">Publications</a></li>
+                        <li><a href="opportunities.html" class="text-white">Opportunities</a></li>
+                        <li><a href="privacy-policy.html" class="text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.2)">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Academic Research Institute. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white">Terms of Use</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="text-white">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Language switcher functionality would go here
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html> 

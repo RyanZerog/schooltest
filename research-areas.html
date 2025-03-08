@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Areas | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Copy the CSS from index.html and add specific styles for this page */
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Include the rest of the CSS from index.html */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 12px 0;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            margin: 0 10px;
+            position: relative;
+            font-weight: 500;
+            padding: 8px 0;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255,255,255,0.8) !important;
+        }
+        
+        .nav-item:not(.dropdown) .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-item:not(.dropdown) .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            padding: 10px 0;
+        }
+        
+        .dropdown-item {
+            padding: 8px 20px;
+            transition: var(--transition);
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(0,51,102,0.05);
+            color: var(--primary-color);
+        }
+        
+        .language-selector {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--border-radius);
+            padding: 5px 10px;
+        }
+        
+        .language-selector:focus {
+            box-shadow: none;
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1580777361964-27e9cdd2f838?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .research-card {
+            border: none;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .research-card .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .research-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .research-details {
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .research-detail-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .research-detail-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid var(--primary-color);
+        }
+        
+        .publication-item {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .publication-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .research-tab {
+            padding: 15px 20px;
+            border-radius: 0;
+            border: none;
+            border-bottom: 2px solid transparent;
+            background-color: transparent;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        
+        .research-tab.active {
+            color: var(--primary-color);
+            background-color: transparent;
+            border-bottom: 2px solid var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .research-tab:hover:not(.active) {
+            background-color: rgba(0,0,0,0.03);
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .btn {
+            border-radius: 4px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding-top: 40px;
+        }
+        
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .chinese {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .page-header .chinese {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0;
+            }
+            
+            .research-detail-header::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Same as in index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="teamDropdown" role="button" data-bs-toggle="dropdown">
+                            Research Team
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
+                            <li><a class="dropdown-item" href="faculty.html">Core Faculty</a></li>
+                            <li><a class="dropdown-item" href="management.html">Management Team</a></li>
+                            <li><a class="dropdown-item" href="students.html">PhD & Graduate Students</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="research-areas.html">Research Areas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="achievementsDropdown" role="button" data-bs-toggle="dropdown">
+                            Achievements
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <select class="form-select form-select-sm language-selector">
+                            <option value="en" selected>English</option>
+                            <option value="zh">中文</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Research Areas</h1>
+            <p class="lead mt-3">Exploring the frontiers of knowledge through innovative research</p>
+            <div class="chinese">
+                <h2>研究领域</h2>
+                <p>通过创新研究探索知识的前沿</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas Overview -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Research Focus</h2>
+            <div class="text-center mb-5">
+                <p class="lead">Discover our diverse areas of scientific exploration and innovation</p>
+                <div class="chinese">
+                    <p>探索我们多样化的科学研究和创新领域</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card research-card">
+                        <img src="https://images.unsplash.com/photo-1561113275-43a8b0d0d9a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Artificial Intelligence">
+                        <div class="card-body text-center">
+                            <div class="research-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h4 class="card-title">Artificial Intelligence</h4>
+                            <p class="card-text">Developing cutting-edge AI technologies to solve complex problems in healthcare, transportation, finance, and other sectors.</p>
+                            <div class="chinese">
+                                <p>开发前沿人工智能技术，解决医疗、交通、金融等领域的复杂问题。</p>
+                            </div>
+                            <a href="#ai-research" class="btn btn-outline-primary mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card research-card">
+                        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Neuroscience">
+                        <div class="card-body text-center">
+                            <div class="research-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h4 class="card-title">Neuroscience</h4>
+                            <p class="card-text">Investigating the structure and function of the nervous system, and its role in behavior and cognition.</p>
+                            <div class="chinese">
+                                <p>研究神经系统结构和功能，以及它在行为和认知中的作用。</p>
+                            </div>
+                            <a href="#neuroscience-research" class="btn btn-outline-primary mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card research-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Brain-Computer Interface">
+                        <div class="card-body text-center">
+                            <div class="research-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h4 class="card-title">Brain-Computer Interface</h4>
+                            <p class="card-text">Developing interfaces between the human brain and computers to enable direct communication and control.</p>
+                            <div class="chinese">
+                                <p>开发人类大脑和计算机之间的接口，以实现直接通信和控制。</p>
+                            </div>
+                            <a href="#bci-research" class="btn btn-outline-primary mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card research-card">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Quantum Computing">
+                        <div class="card-body text-center">
+                            <div class="research-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h4 class="card-title">Quantum Computing</h4>
+                            <p class="card-text">Exploring the frontiers of quantum mechanics to develop next-generation computing technologies with unprecedented capabilities.</p>
+                            <div class="chinese">
+                                <p>探索量子力学的前沿，开发具有前所未有能力的下一代计算技术。</p>
+                            </div>
+                            <a href="#quantum-research" class="btn btn-outline-primary mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card research-card">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Advanced Materials">
+                        <div class="card-body text-center">
+                            <div class="research-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h4 class="card-title">Advanced Materials</h4>
+                            <p class="card-text">Creating and studying innovative materials with novel properties for applications in electronics, medicine, construction, and aerospace.</p>
+                            <div class="chinese">
+                                <p>创造和研究具有新型特性的创新材料，用于电子、医学、建筑和航空航天领域的应用。</p>
+                            </div>
+                            <a href="#materials-research" class="btn btn-outline-primary mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card research-card">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Climate Science">
+                        <div class="card-body text-center">
+                            <div class="research-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <h4 class="card-title">Climate Science</h4>
+                            <p class="card-text">Studying climate systems, monitoring environmental changes, and developing strategies to mitigate the impacts of climate change.</p>
+                            <div class="chinese">
+                                <p>研究气候系统，监测环境变化，制定减轻气候变化影响的策略。</p>
+                            </div>
+                            <a href="#climate-research" class="btn btn-outline-primary mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Research Details (Collapsed) -->
+    <div class="collapse" id="ai-research">
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="research-details p-0">
+                    <div class="research-detail-header text-center">
+                        <h2 class="mb-3"><i class="fas fa-microchip me-3"></i>Artificial Intelligence Research</h2>
+                        <p class="lead mb-0">Pushing the boundaries of machine intelligence</p>
+                    </div>
+                    <div class="p-4 p-md-5">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h3>Research Focus Areas</h3>
+                                <p>Our AI research program explores cutting-edge technologies and methodologies to develop intelligent systems capable of solving complex real-world problems. We focus on several key areas:</p>
+                                
+                                <div class="mt-4">
+                                    <h5><i class="fas fa-brain text-primary me-2"></i> Deep Learning & Neural Networks</h5>
+                                    <p>Developing advanced neural network architectures for computer vision, natural language processing, and multimodal learning. Our research explores optimization techniques, transfer learning, and interpretability of deep learning models.</p>
+                                    <div class="chinese">
+                                        <p>深度学习和神经网络：开发用于计算机视觉、自然语言处理和多模态学习的先进神经网络架构。我们的研究探索优化技术、迁移学习和深度学习模型的可解释性。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h5><i class="fas fa-robot text-primary me-2"></i> Reinforcement Learning & Robotics</h5>
+                                    <p>Investigating reinforcement learning algorithms for robotic control, autonomous navigation, and human-robot interaction. We are particularly interested in sample-efficient learning and safe exploration methods.</p>
+                                    <div class="chinese">
+                                        <p>强化学习和机器人技术：研究用于机器人控制、自主导航和人机交互的强化学习算法。我们特别关注样本高效学习和安全探索方法。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h5><i class="fas fa-heartbeat text-primary me-2"></i> AI in Healthcare</h5>
+                                    <p>Applying AI technologies to medical imaging analysis, disease prediction, personalized treatment, and drug discovery. We collaborate closely with medical professionals to ensure our solutions address critical healthcare challenges.</p>
+                                    <div class="chinese">
+                                        <p>医疗保健中的人工智能：将人工智能技术应用于医学图像分析、疾病预测、个性化治疗和药物发现。我们与医疗专业人员密切合作，确保我们的解决方案能够应对关键的医疗保健挑战。</p>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="mt-5">Recent Publications</h3>
+                                <div class="publication-item">
+                                    <h6>Deep Learning Approaches for Medical Image Segmentation: A Comprehensive Review</h6>
+                                    <p class="text-muted">Zhang J., Johnson S., et al. | Journal of Medical Imaging, 2023</p>
+                                </div>
+                                <div class="publication-item">
+                                    <h6>Transformer-based Models for Multimodal Learning in Healthcare Applications</h6>
+                                    <p class="text-muted">Chen M., Williams R., et al. | Conference on Neural Information Processing Systems, 2022</p>
+                                </div>
+                                <div class="publication-item">
+                                    <h6>Safe Reinforcement Learning for Autonomous Vehicles: A Hybrid Approach</h6>
+                                    <p class="text-muted">Taylor K., Ahmed F., et al. | IEEE Transactions on Intelligent Transportation Systems, 2022</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="bg-light p-4 rounded">
+                                    <h4>Research Team</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-3">
+                                            <strong>Prof. Michael Chen, Ph.D.</strong>
+                                            <p class="mb-0">Lead Researcher</p>
+                                            <small>Specialization: Deep Learning, Computer Vision</small>
+                                        </li>
+                                        <li class="mb-3">
+                                            <strong>Dr. Sarah Johnson, Ph.D.</strong>
+                                            <p class="mb-0">Senior Researcher</p>
+                                            <small>Specialization: Natural Language Processing</small>
+                                        </li>
+                                        <li class="mb-3">
+                                            <strong>Dr. Robert Taylor, Ph.D.</strong>
+                                            <p class="mb-0">Research Scientist</p>
+                                            <small>Specialization: Reinforcement Learning, Robotics</small>
+                                        </li>
+                                    </ul>
+                                    
+                                    <h4 class="mt-4">Lab Facilities</h4>
+                                    <ul>
+                                        <li>High-Performance Computing Cluster</li>
+                                        <li>Robotics Testing Environment</li>
+                                        <li>Computer Vision Laboratory</li>
+                                        <li>Medical Imaging Datasets</li>
+                                    </ul>
+                                    
+                                    <h4 class="mt-4">Collaboration Opportunities</h4>
+                                    <p>We actively seek collaborations with industry partners, healthcare institutions, and other research organizations. If you're interested in partnering with us, please contact:</p>
+                                    <p><i class="fas fa-envelope me-2"></i>ai-research@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Biotech Research Details (Add similar sections for other research areas) -->
+    <div class="collapse" id="neuroscience-research">
+        <!-- Similar structure to AI Research section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="research-details p-0">
+                    <div class="research-detail-header text-center">
+                        <h2 class="mb-3"><i class="fas fa-dna me-3"></i>Neuroscience Research</h2>
+                        <p class="lead mb-0">Advancing life sciences through innovative approaches</p>
+                    </div>
+                    <div class="p-4 p-md-5">
+                        <!-- Content similar to AI section but for Neuroscience -->
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h3>Research Focus Areas</h3>
+                                <p>Our neuroscience research program combines advanced molecular biology techniques with cutting-edge computational approaches to address critical challenges in medicine, agriculture, and environmental science.</p>
+                                
+                                <!-- Research areas specific to Neuroscience -->
+                                <!-- Similar structure as AI section -->
+                                <!-- ... -->
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <!-- Team, facilities, and collaboration info -->
+                                <!-- ... -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cross-disciplinary Research -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Cross-disciplinary Research</h2>
+            <div class="text-center mb-5">
+                <p class="lead">Addressing complex challenges through interdisciplinary approaches</p>
+                <div class="chinese">
+                    <p>通过跨学科方法应对复杂挑战</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Cross-disciplinary Research" class="img-fluid rounded shadow-sm mb-4">
+                    <h4>Breaking Down Disciplinary Boundaries</h4>
+                    <p>At the Academic Research Institute, we recognize that the most challenging problems of our time require solutions that transcend traditional disciplinary boundaries. Our approach emphasizes collaboration across research areas to develop comprehensive solutions to complex global challenges.</p>
+                    <div class="chinese">
+                        <p>打破学科界限：在学术研究院，我们认识到当今最具挑战性的问题需要超越传统学科界限的解决方案。我们的方法强调跨研究领域的合作，以开发复杂全球挑战的综合解决方案。</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="bg-light p-4 rounded shadow-sm mb-4">
+                        <h4 class="mb-3">Featured Cross-disciplinary Projects</h4>
+                        <div class="mb-4 pb-2 border-bottom">
+                            <h5><i class="fas fa-project-diagram text-primary me-2"></i> AI for Climate Science</h5>
+                            <p>Leveraging machine learning algorithms to analyze climate data, predict environmental changes, and develop adaptive strategies for climate resilience.</p>
+                        </div>
+                        <div class="mb-4 pb-2 border-bottom">
+                            <h5><i class="fas fa-project-diagram text-primary me-2"></i> Biotech-Materials Integration</h5>
+                            <p>Combining biotechnology with advanced materials science to create bio-compatible materials for medical implants, drug delivery systems, and tissue engineering.</p>
+                        </div>
+                        <div>
+                            <h5><i class="fas fa-project-diagram text-primary me-2"></i> Quantum Computing for Drug Discovery</h5>
+                            <p>Using quantum computing algorithms to accelerate the process of drug discovery by simulating molecular interactions with unprecedented accuracy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="cross-disciplinary.html" class="btn btn-primary">Explore All Cross-disciplinary Research</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Facilities -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Research Facilities</h2>
+            <div class="text-center mb-5">
+                <p class="lead">State-of-the-art facilities supporting groundbreaking research</p>
+                <div class="chinese">
+                    <p>支持开创性研究的最先进设施</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Neuroscience Lab">
+                        <div class="card-body">
+                            <h5 class="card-title">Neuroscience Laboratory</h5>
+                            <p class="card-text">Equipped with cutting-edge scientific instruments for neuroscience research.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1573496773905-f5b17e717f05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Computing Facility">
+                        <div class="card-body">
+                            <h5 class="card-title">High-Performance Computing Center</h5>
+                            <p class="card-text">A state-of-the-art computing infrastructure supporting AI, quantum simulations, and data-intensive research.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Neuroimaging Equipment">
+                        <div class="card-body">
+                            <h5 class="card-title">Neuroimaging Equipment</h5>
+                            <p class="card-text">Advanced imaging technologies for neuroscience research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="facilities.html" class="btn btn-primary">Tour Our Facilities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as in index.html) -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Academic Research Institute</h5>
+                    <p class="chinese">学术研究院</p>
+                    <p>Advancing knowledge and innovation through collaborative research</p>
+                    <div class="chinese mb-3">
+                        <p>通过协作研究促进知识创新</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 University Avenue, City, Country</p>
+                    <p><i class="fas fa-phone me-2"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@academicresearch.edu</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="research-areas.html" class="text-white">Research Areas</a></li>
+                        <li><a href="news.html" class="text-white">News & Events</a></li>
+                        <li><a href="publications.html" class="text-white">Publications</a></li>
+                        <li><a href="opportunities.html" class="text-white">Opportunities</a></li>
+                        <li><a href="privacy-policy.html" class="text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.2)">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Academic Research Institute. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white">Terms of Use</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="text-white">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Language switcher functionality would go here
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html> 
