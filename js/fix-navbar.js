@@ -1,3 +1,17 @@
+// 删除或注释所有可能加载header.html的代码
+// 例如，如果文件中有类似下面的代码，应该删除或注释掉：
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     fetch('header.html')
+//         .then(response => response.text())
+//         .then(data => {
+//             // 可能在页面开始处插入标题
+//             document.body.insertAdjacentHTML('afterbegin', data);
+//             // 或者插入到某个特定元素
+//             // document.querySelector('some-selector').innerHTML = data;
+//         });
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
     // 查找所有导航链接
     let navLinks = document.querySelectorAll('.nav-link');
