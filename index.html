@@ -59,9 +59,6 @@
     </style>
 </head>
 <body>
-    <!-- 在页面最前面插入导航栏 -->
-    <div id="header-placeholder"></div>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
@@ -426,15 +423,6 @@
     <script src="js/titleTabAnimation.js"></script>
     <script src="js/pageIntroAnimation.js"></script>
     <script src="js/pages/home.js"></script>
-    <script>
-        // 加载头部导航栏
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-    </script>
-    <!-- 在页面底部加入页脚加载脚本 -->
     <script>
         // 立即加载页脚
         fetch('footer.html')
