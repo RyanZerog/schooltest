@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Team | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/unified-navbar.css">
+    <link rel="stylesheet" href="css/multi-level-dropdown.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .team-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            margin-bottom: 30px;
+            background-color: white;
+            height: 100%;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .team-img-container {
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .team-name {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .team-role {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-bio {
+            margin-bottom: 15px;
+        }
+        
+        .team-contact i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .department-section {
+            margin-bottom: 50px;
+        }
+        
+        .team-social {
+            margin-top: 15px;
+        }
+        
+        .team-social a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 5px;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 标准导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Achievement</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                                    <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle active" href="#">Research Team</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
+                                    <li><a class="dropdown-item" href="core-faculty.html">Core Faculty</a></li>
+                                    <li><a class="dropdown-item active" href="management-team.html">Management Team</a></li>
+                                    <li><a class="dropdown-item" href="phd-graduate-students.html">PhD & Graduate Students</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <select class="language-selector ms-lg-3">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Management Team</h1>
+            <div class="chinese">
+                <p>管理团队</p>
+            </div>
+            <p class="lead mt-4">The dedicated professionals driving our institute's operations and strategic initiatives</p>
+            <div class="chinese">
+                <p>推动我们研究院运营和战略举措的专业团队</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Executive Team -->
+    <section class="py-5">
+        <div class="container">
+            <div class="department-section">
+                <h2 class="section-title">Executive Leadership</h2>
+                <div class="row">
+                    <!-- Executive 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/38.jpg" class="team-img" alt="Executive">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. James Wilson</h3>
+                                <p class="team-role">Executive Director</p>
+                                <p class="team-bio">Dr. Wilson oversees all operations of the institute, providing strategic leadership and vision for our research initiatives.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>j.wilson@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Executive 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/41.jpg" class="team-img" alt="Executive">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. Emily Chen</h3>
+                                <p class="team-role">Deputy Director, Research</p>
+                                <p class="team-bio">Dr. Chen coordinates the institute's research programs and facilitates collaboration between different research departments.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>e.chen@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Executive 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/45.jpg" class="team-img" alt="Executive">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Mr. Thomas Baker</h3>
+                                <p class="team-role">Chief Financial Officer</p>
+                                <p class="team-bio">Mr. Baker manages the institute's financial operations, budget planning, and grant administration to ensure sustainable growth.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>t.baker@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Department Heads -->
+            <div class="department-section">
+                <h2 class="section-title">Department Directors</h2>
+                <div class="row">
+                    <!-- Department Head 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/26.jpg" class="team-img" alt="Department Head">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. Lisa Martinez</h3>
+                                <p class="team-role">Director, Human Resources</p>
+                                <p class="team-bio">Dr. Martinez leads our HR department, focusing on talent acquisition, professional development, and fostering an inclusive workplace culture.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>l.martinez@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Department Head 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/39.jpg" class="team-img" alt="Department Head">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. Richard Kim</h3>
+                                <p class="team-role">Director, International Relations</p>
+                                <p class="team-bio">Dr. Kim manages our global partnerships and international collaboration initiatives, expanding our institute's global presence.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>r.kim@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Department Head 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/33.jpg" class="team-img" alt="Department Head">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. Sophia Turner</h3>
+                                <p class="team-role">Director, Communications</p>
+                                <p class="team-bio">Dr. Turner leads our communications team, overseeing public relations, digital media, and knowledge dissemination strategies.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>s.turner@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Operations Team -->
+            <div class="department-section">
+                <h2 class="section-title">Operations Management</h2>
+                <div class="row">
+                    <!-- Operations 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/55.jpg" class="team-img" alt="Operations Manager">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Mr. Daniel Lewis</h3>
+                                <p class="team-role">Laboratory Operations Manager</p>
+                                <p class="team-bio">Mr. Lewis oversees the maintenance and operation of our research facilities, ensuring a safe and productive environment for our researchers.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>d.lewis@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Operations 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/23.jpg" class="team-img" alt="Operations Manager">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Mr. Jason Garcia</h3>
+                                <p class="team-role">IT & Technology Manager</p>
+                                <p class="team-bio">Mr. Garcia leads our IT department, providing technical support and developing infrastructure for our research computing needs.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>j.garcia@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Operations 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="team-card">
+                            <div class="team-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/37.jpg" class="team-img" alt="Operations Manager">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Ms. Amanda Nelson</h3>
+                                <p class="team-role">Grants & Contracts Manager</p>
+                                <p class="team-bio">Ms. Nelson manages our grants portfolio, funding applications, and research contracts to support our scientific endeavors.</p>
+                                <div class="team-contact">
+                                    <p><i class="fas fa-envelope"></i>a.nelson@academicresearch.edu</p>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizational Structure -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title text-center">Our Organizational Structure</h2>
+                    <p class="text-center mb-4">Our institute operates with a collaborative structure that promotes innovation and interdisciplinary research.</p>
+                    
+                    <div class="org-chart">
+                        <img src="https://via.placeholder.com/800x400?text=Organizational+Chart" alt="Organizational Chart" class="img-fluid rounded shadow">
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="about.html" class="btn btn-primary">Learn More About Our Institute</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/multi-level-dropdown.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script>
+        // Language switcher functionality
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html> 

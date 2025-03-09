@@ -6,8 +6,34 @@
     <title>Research Areas | Academic Research Institute</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/unified-navbar.css">
+    <link rel="stylesheet" href="css/multi-level-dropdown.css">
     <style>
-        /* Copy the CSS from index.html and add specific styles for this page */
+        /* 确保导航栏样式正确应用 */
+        .navbar-dark {
+            background-color: #003366;
+        }
+        
+        .dropdown-submenu {
+            position: relative !important;
+        }
+        
+        .dropdown-submenu > .dropdown-menu {
+            top: 0 !important;
+            left: 100% !important;
+            margin-top: -6px !important;
+            margin-left: -1px !important;
+            border-radius: 0 6px 6px 6px !important;
+            display: none !important;
+        }
+        
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+        }
+        
+        /* 这里可以添加您页面的其他样式 */
         :root {
             --primary-color: #003366;
             --secondary-color: #0066cc;
@@ -19,280 +45,19 @@
             --transition: all 0.3s ease;
         }
         
-        /* Include the rest of the CSS from index.html */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-        
-        .navbar {
-            background-color: var(--primary-color);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 12px 0;
-        }
-        
-        .nav-link {
-            color: var(--text-light) !important;
-            margin: 0 10px;
-            position: relative;
-            font-weight: 500;
-            padding: 8px 0;
-        }
-        
-        .nav-link:hover {
-            color: rgba(255,255,255,0.8) !important;
-        }
-        
-        .nav-item:not(.dropdown) .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: white;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        .nav-item:not(.dropdown) .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        
-        .dropdown-menu {
-            border: none;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-            padding: 10px 0;
-        }
-        
-        .dropdown-item {
-            padding: 8px 20px;
-            transition: var(--transition);
-        }
-        
-        .dropdown-item:hover {
-            background-color: rgba(0,51,102,0.05);
-            color: var(--primary-color);
-        }
-        
-        .language-selector {
-            background: transparent;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: var(--border-radius);
-            padding: 5px 10px;
-        }
-        
-        .language-selector:focus {
-            box-shadow: none;
-            border-color: rgba(255,255,255,0.5);
-        }
-        
+        /* 保留原页面的其他样式 */
         .page-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1580777361964-27e9cdd2f838?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
-            background-size: cover;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .section-title {
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-        
-        .text-center .section-title::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .research-card {
-            border: none;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: var(--box-shadow);
-            height: 100%;
-        }
-        
-        .research-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .research-card .card-img-top {
-            height: 220px;
-            object-fit: cover;
-        }
-        
-        .research-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .research-details {
-            border-radius: var(--border-radius);
-            background-color: white;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .research-detail-header {
             background-color: var(--primary-color);
             color: white;
-            padding: 30px;
-            position: relative;
+            padding: 60px 0;
+            margin-bottom: 40px;
         }
         
-        .research-detail-header::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid var(--primary-color);
-        }
-        
-        .publication-item {
-            border-left: 3px solid var(--secondary-color);
-            padding-left: 20px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .publication-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-        }
-        
-        .research-tab {
-            padding: 15px 20px;
-            border-radius: 0;
-            border: none;
-            border-bottom: 2px solid transparent;
-            background-color: transparent;
-            color: var(--text-dark);
-            transition: var(--transition);
-        }
-        
-        .research-tab.active {
-            color: var(--primary-color);
-            background-color: transparent;
-            border-bottom: 2px solid var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .research-tab:hover:not(.active) {
-            background-color: rgba(0,0,0,0.03);
-            border-bottom: 2px solid rgba(0,0,0,0.1);
-        }
-        
-        .btn {
-            border-radius: 4px;
-            padding: 8px 20px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-        
-        .btn-outline-primary {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding-top: 40px;
-        }
-        
-        footer a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .social-icon {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-        
-        .chinese {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 8px;
-        }
-        
-        .page-header .chinese {
-            color: rgba(255,255,255,0.9);
-        }
-        
-        @media (max-width: 768px) {
-            .page-header {
-                padding: 80px 0;
-            }
-            
-            .research-detail-header::after {
-                display: none;
-            }
-        }
+        /* 其他页面样式... */
     </style>
 </head>
 <body>
-    <!-- Navigation Bar (Same as in index.html) -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -307,31 +72,39 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="teamDropdown" role="button" data-bs-toggle="dropdown">
-                            Research Team
+                        <a class="nav-link dropdown-toggle active" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
+                            Research
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
-                            <li><a class="dropdown-item" href="faculty.html">Core Faculty</a></li>
-                            <li><a class="dropdown-item" href="management.html">Management Team</a></li>
-                            <li><a class="dropdown-item" href="students.html">PhD & Graduate Students</a></li>
+                            <li><a class="dropdown-item active" href="research-areas.html">Research Areas</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Achievement</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                                    <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Research Team</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
+                                    <li><a class="dropdown-item" href="core-faculty.html">Core Faculty</a></li>
+                                    <li><a class="dropdown-item" href="management-team.html">Management Team</a></li>
+                                    <li><a class="dropdown-item" href="phd-graduate-students.html">PhD & Graduate Students</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="research-areas.html">Research Areas</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="achievementsDropdown" role="button" data-bs-toggle="dropdown">
-                            Achievements
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
-                            <li><a class="dropdown-item" href="patents.html">Patents</a></li>
-                        </ul>
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="news.html">News</a>
+                        <a class="nav-link" href="news.html">News & Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="collaboration.html">Collaboration</a>
@@ -339,13 +112,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <select class="form-select form-select-sm language-selector">
-                            <option value="en" selected>English</option>
-                            <option value="zh">中文</option>
-                        </select>
-                    </li>
                 </ul>
+                <select class="language-selector ms-lg-3">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
             </div>
         </div>
     </nav>

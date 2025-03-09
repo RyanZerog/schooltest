@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD & Graduate Students | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/unified-navbar.css">
+    <link rel="stylesheet" href="css/multi-level-dropdown.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .student-grid {
+            margin-bottom: 40px;
+        }
+        
+        .student-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            margin-bottom: 30px;
+            height: 100%;
+            background-color: white;
+        }
+        
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .student-img-container {
+            overflow: hidden;
+            position: relative;
+            height: 220px;
+        }
+        
+        .student-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .student-card:hover .student-img {
+            transform: scale(1.05);
+        }
+        
+        .student-info {
+            padding: 20px;
+        }
+        
+        .student-name {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .student-program {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .student-research {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .student-bio {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .student-contact {
+            font-size: 0.9rem;
+        }
+        
+        .student-contact i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .group-section {
+            margin-bottom: 60px;
+        }
+        
+        .advisor-note {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .research-tags {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 标准导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Achievement</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                                    <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle active" href="#">Research Team</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
+                                    <li><a class="dropdown-item" href="core-faculty.html">Core Faculty</a></li>
+                                    <li><a class="dropdown-item" href="management-team.html">Management Team</a></li>
+                                    <li><a class="dropdown-item active" href="phd-graduate-students.html">PhD & Graduate Students</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <select class="language-selector ms-lg-3">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>PhD & Graduate Students</h1>
+            <div class="chinese">
+                <p>博士及研究生</p>
+            </div>
+            <p class="lead mt-4">Meet the next generation of scientific leaders</p>
+            <div class="chinese">
+                <p>认识下一代科学领袖</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Students Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Research Students</h2>
+            <p class="text-center mb-5">Discover the innovative work being conducted by our talented PhD and graduate students across multiple research domains.</p>
+            
+            <!-- PhD Students -->
+            <div class="group-section">
+                <h3 class="section-title">PhD Candidates</h3>
+                <div class="row student-grid">
+                    <!-- PhD Student 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/32.jpg" class="student-img" alt="PhD Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Wei Zhang</h3>
+                                <p class="student-program">PhD in Artificial Intelligence (Year 3)</p>
+                                <div class="research-tags">
+                                    <span class="badge">Deep Learning</span>
+                                    <span class="badge">Computer Vision</span>
+                                    <span class="badge">Medical Imaging</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Michael Chen</p>
+                                <p class="student-bio">Wei's research focuses on developing novel deep learning architectures for medical image analysis with applications in early disease detection.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>w.zhang@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Student 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/24.jpg" class="student-img" alt="PhD Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Priya Sharma</h3>
+                                <p class="student-program">PhD in Biotechnology (Year 4)</p>
+                                <div class="research-tags">
+                                    <span class="badge">CRISPR</span>
+                                    <span class="badge">Gene Editing</span>
+                                    <span class="badge">Genetic Diseases</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Sarah Johnson</p>
+                                <p class="student-bio">Priya is investigating CRISPR-based gene editing technologies for treating genetic disorders with particular focus on delivery mechanisms.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>p.sharma@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Student 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/44.jpg" class="student-img" alt="PhD Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">James Wilson</h3>
+                                <p class="student-program">PhD in Renewable Energy (Year 2)</p>
+                                <div class="research-tags">
+                                    <span class="badge">Solar Materials</span>
+                                    <span class="badge">Perovskites</span>
+                                    <span class="badge">Energy Storage</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Robert Lee</p>
+                                <p class="student-bio">James is developing novel perovskite-based solar materials with enhanced stability and efficiency for next-generation solar cells.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>j.wilson@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Student 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/42.jpg" class="student-img" alt="PhD Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Elena Rodriguez</h3>
+                                <p class="student-program">PhD in Neuroscience (Year 3)</p>
+                                <div class="research-tags">
+                                    <span class="badge">Neural Interfaces</span>
+                                    <span class="badge">Cognitive Science</span>
+                                    <span class="badge">Brain Mapping</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Emma Wilson</p>
+                                <p class="student-bio">Elena's research explores non-invasive brain-computer interfaces for assistive technology applications in mobility impairments.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>e.rodriguez@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Student 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/28.jpg" class="student-img" alt="PhD Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Hiroshi Tanaka</h3>
+                                <p class="student-program">PhD in Data Science (Year 4)</p>
+                                <div class="research-tags">
+                                    <span class="badge">Predictive Analytics</span>
+                                    <span class="badge">Climate Modeling</span>
+                                    <span class="badge">Sustainability</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. David Rodriguez</p>
+                                <p class="student-bio">Hiroshi is developing advanced predictive models for climate change impact analysis using distributed computing and ML techniques.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>h.tanaka@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Student 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/29.jpg" class="student-img" alt="PhD Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Maria Lopez</h3>
+                                <p class="student-program">PhD in Materials Science (Year 2)</p>
+                                <div class="research-tags">
+                                    <span class="badge">Nanomaterials</span>
+                                    <span class="badge">Quantum Dots</span>
+                                    <span class="badge">Optoelectronics</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Jennifer Park</p>
+                                <p class="student-bio">Maria is researching quantum dot nanomaterials for advanced display and sensing applications with enhanced energy efficiency.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>m.lopez@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Master's Students -->
+            <div class="group-section">
+                <h3 class="section-title">Master's Students</h3>
+                <div class="row student-grid">
+                    <!-- Master's Student 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/36.jpg" class="student-img" alt="Master's Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Alex Chen</h3>
+                                <p class="student-program">MSc in Computer Science</p>
+                                <div class="research-tags">
+                                    <span class="badge">AI Ethics</span>
+                                    <span class="badge">Machine Learning</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Michael Chen</p>
+                                <p class="student-bio">Alex is exploring ethical considerations in AI systems, focusing on fairness, accountability, and transparency in decision-making algorithms.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>a.chen@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Master's Student 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/female/22.jpg" class="student-img" alt="Master's Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Olivia Johnson</h3>
+                                <p class="student-program">MSc in Biological Sciences</p>
+                                <div class="research-tags">
+                                    <span class="badge">Protein Engineering</span>
+                                    <span class="badge">Synthetic Biology</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Sarah Johnson</p>
+                                <p class="student-bio">Olivia is working on engineered proteins with novel functionalities for applications in biotechnology and medicine.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>o.johnson@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Master's Student 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="student-card">
+                            <div class="student-img-container">
+                                <img src="https://xsgames.co/randomusers/assets/avatars/male/48.jpg" class="student-img" alt="Master's Student">
+                            </div>
+                            <div class="student-info">
+                                <h3 class="student-name">Mohammed Al-Farsi</h3>
+                                <p class="student-program">MSc in Sustainable Energy</p>
+                                <div class="research-tags">
+                                    <span class="badge">Grid Integration</span>
+                                    <span class="badge">Renewable Energy</span>
+                                </div>
+                                <p class="advisor-note">Advisor: Prof. Robert Lee</p>
+                                <p class="student-bio">Mohammed is analyzing technical solutions for integrating large-scale renewable energy systems into existing power grids.</p>
+                                <div class="student-contact">
+                                    <p><i class="fas fa-envelope"></i>m.alfarsi@academicresearch.edu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Opportunities Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title text-center">Student Opportunities</h2>
+                    <p>We are always looking for talented and motivated students to join our research teams. If you are interested in pursuing graduate studies with us, explore our available positions and application information.</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-primary me-2">PhD Positions</a>
+                        <a href="#" class="btn btn-secondary me-2">Master's Programs</a>
+                        <a href="contact.html" class="btn btn-outline-primary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/multi-level-dropdown.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script>
+        // Language switcher functionality
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html> 

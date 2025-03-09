@@ -1,0 +1,145 @@
+/* 多级下拉菜单的样式 - 增加特异性 */
+.navbar .dropdown-submenu {
+    position: relative !important;
+}
+
+.navbar .dropdown-submenu > .dropdown-menu {
+    top: 0 !important;
+    left: 100% !important;
+    margin-top: -6px !important;
+    margin-left: -1px !important;
+    border-radius: 0 6px 6px 6px !important;
+    display: none !important; /* 默认强制隐藏 */
+}
+
+/* 只在鼠标悬停时显示子菜单 */
+.navbar .dropdown-submenu:hover > .dropdown-menu {
+    display: block !important;
+}
+
+/* JavaScript添加的显示类 */
+.navbar .dropdown-submenu > .dropdown-menu.show {
+    display: block !important;
+}
+
+/* 子菜单箭头样式 */
+.navbar .dropdown-submenu > a:after {
+    display: block !important;
+    content: " " !important;
+    float: right !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-color: transparent !important;
+    border-style: solid !important;
+    border-width: 5px 0 5px 5px !important;
+    border-left-color: #ccc !important;
+    margin-top: 5px !important;
+    margin-right: -10px !important;
+}
+
+.navbar .dropdown-submenu:hover > a:after {
+    border-left-color: #fff !important;
+}
+
+/* 移动端样式 */
+@media (max-width: 992px) {
+    .navbar .dropdown-submenu > .dropdown-menu {
+        left: 0 !important;
+        margin-left: 15px !important;
+        border-left: 1px solid rgba(255,255,255,0.2) !important;
+        position: static !important;
+    }
+    
+    .navbar .dropdown-submenu > a:after {
+        transform: rotate(90deg) !important;
+    }
+}
+
+/* 确保二级菜单不受Bootstrap默认规则影响 */
+.navbar .dropdown-menu .dropdown-menu {
+    position: absolute !important;
+}
+
+/* 修复可能导致冲突的其他样式 */
+.navbar .dropdown-toggle::after {
+    display: inline-block !important;
+    margin-left: 0.255em !important;
+    vertical-align: 0.255em !important;
+    content: "" !important;
+    border-top: 0.3em solid !important;
+    border-right: 0.3em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.3em solid transparent !important;
+}
+
+.navbar .dropdown-submenu .dropdown-toggle::after {
+    border-top: 0.3em solid transparent !important;
+    border-right: 0 !important;
+    border-bottom: 0.3em solid transparent !important;
+    border-left: 0.3em solid !important;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    border-radius: 0 6px 6px 6px;
+    display: none; /* 默认隐藏 */
+}
+
+/* 只在鼠标悬停时显示子菜单 */
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+/* JavaScript添加的显示类 */
+.dropdown-submenu > .dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover > a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    border-radius: 6px 0 6px 6px;
+}
+
+/* 移动端调整，保持子菜单靠左 */
+@media (max-width: 992px) {
+    .dropdown-submenu > .dropdown-menu {
+        left: 0;
+        margin-left: 15px;
+        border-left: 1px solid rgba(255,255,255,0.2);
+        position: static;
+    }
+    
+    .dropdown-submenu > a:after {
+        transform: rotate(90deg);
+    }
+} 

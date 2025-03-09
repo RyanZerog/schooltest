@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Faculty | Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/unified-navbar.css">
+    <link rel="stylesheet" href="css/multi-level-dropdown.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .faculty-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            margin-bottom: 30px;
+            background-color: white;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .faculty-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .faculty-info {
+            padding: 20px;
+        }
+        
+        .faculty-name {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .faculty-title {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .faculty-specialization {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .faculty-bio {
+            margin-bottom: 15px;
+        }
+        
+        .faculty-contact i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- 标准导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
+                <span class="ms-2">Academic Research Institute</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Achievement</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                                    <li><a class="dropdown-item" href="patents.html">Patents</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle active" href="#">Research Team</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="academic-committee.html">Academic Committee</a></li>
+                                    <li><a class="dropdown-item active" href="core-faculty.html">Core Faculty</a></li>
+                                    <li><a class="dropdown-item" href="management-team.html">Management Team</a></li>
+                                    <li><a class="dropdown-item" href="phd-graduate-students.html">PhD & Graduate Students</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academic-committee.html">Academic Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <select class="language-selector ms-lg-3">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Core Faculty Members</h1>
+            <div class="chinese">
+                <p>核心教师团队</p>
+            </div>
+            <p class="lead mt-4">Leading researchers driving innovation across disciplines</p>
+            <div class="chinese">
+                <p>引领跨学科创新的杰出研究者</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Faculty Members -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Distinguished Faculty</h2>
+            <p class="text-center mb-5">Our core faculty includes world-class researchers with extensive experience in their fields.</p>
+            
+            <div class="row">
+                <!-- Faculty Member 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="faculty-card">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/46.jpg" class="faculty-img" alt="Faculty Member">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Prof. Michael Chen, Ph.D.</h3>
+                            <p class="faculty-title">Professor of Artificial Intelligence</p>
+                            <p class="faculty-specialization">Machine Learning, Deep Neural Networks</p>
+                            <p class="faculty-bio">Dr. Chen leads cutting-edge research in machine learning algorithms with applications in healthcare and autonomous systems.</p>
+                            <div class="faculty-contact">
+                                <p><i class="fas fa-envelope"></i>m.chen@academicresearch.edu</p>
+                                <p><i class="fas fa-phone"></i>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Faculty Member 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="faculty-card">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/female/35.jpg" class="faculty-img" alt="Faculty Member">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Prof. Sarah Johnson, Ph.D.</h3>
+                            <p class="faculty-title">Professor of Biotechnology</p>
+                            <p class="faculty-specialization">Genomics, Molecular Biology</p>
+                            <p class="faculty-bio">Dr. Johnson's research focuses on genomic technologies and their application in personalized medicine.</p>
+                            <div class="faculty-contact">
+                                <p><i class="fas fa-envelope"></i>s.johnson@academicresearch.edu</p>
+                                <p><i class="fas fa-phone"></i>+1 (555) 234-5678</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Faculty Member 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="faculty-card">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/52.jpg" class="faculty-img" alt="Faculty Member">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Prof. Robert Lee, Ph.D.</h3>
+                            <p class="faculty-title">Professor of Renewable Energy</p>
+                            <p class="faculty-specialization">Solar Energy, Energy Storage</p>
+                            <p class="faculty-bio">Dr. Lee's work centers on developing next-generation solar cells and energy storage solutions for a sustainable future.</p>
+                            <div class="faculty-contact">
+                                <p><i class="fas fa-envelope"></i>r.lee@academicresearch.edu</p>
+                                <p><i class="fas fa-phone"></i>+1 (555) 345-6789</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Faculty Member 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="faculty-card">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/female/42.jpg" class="faculty-img" alt="Faculty Member">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Prof. Emma Wilson, Ph.D.</h3>
+                            <p class="faculty-title">Professor of Neuroscience</p>
+                            <p class="faculty-specialization">Cognitive Neuroscience, Brain-Computer Interfaces</p>
+                            <p class="faculty-bio">Dr. Wilson investigates neural mechanisms of cognition and develops brain-computer interface technologies.</p>
+                            <div class="faculty-contact">
+                                <p><i class="fas fa-envelope"></i>e.wilson@academicresearch.edu</p>
+                                <p><i class="fas fa-phone"></i>+1 (555) 456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Faculty Member 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="faculty-card">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/male/24.jpg" class="faculty-img" alt="Faculty Member">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Prof. David Rodriguez, Ph.D.</h3>
+                            <p class="faculty-title">Professor of Data Science</p>
+                            <p class="faculty-specialization">Big Data Analytics, Predictive Modeling</p>
+                            <p class="faculty-bio">Dr. Rodriguez develops novel computational methods for analyzing large-scale datasets across various domains.</p>
+                            <div class="faculty-contact">
+                                <p><i class="fas fa-envelope"></i>d.rodriguez@academicresearch.edu</p>
+                                <p><i class="fas fa-phone"></i>+1 (555) 567-8901</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Faculty Member 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="faculty-card">
+                        <img src="https://xsgames.co/randomusers/assets/avatars/female/29.jpg" class="faculty-img" alt="Faculty Member">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Prof. Jennifer Park, Ph.D.</h3>
+                            <p class="faculty-title">Professor of Materials Science</p>
+                            <p class="faculty-specialization">Nanomaterials, Sustainable Materials</p>
+                            <p class="faculty-bio">Dr. Park's research explores novel nanomaterials for applications in electronics, energy, and environmental remediation.</p>
+                            <div class="faculty-contact">
+                                <p><i class="fas fa-envelope"></i>j.park@academicresearch.edu</p>
+                                <p><i class="fas fa-phone"></i>+1 (555) 678-9012</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Our Faculty Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title text-center">Join Our Faculty</h2>
+                    <p>We are constantly looking for talented researchers and educators to join our team. If you are passionate about academic excellence and groundbreaking research, we'd love to hear from you.</p>
+                    <a href="contact.html" class="btn btn-primary mt-3">Contact Us About Opportunities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/multi-level-dropdown.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script>
+        // Language switcher functionality
+        document.querySelector('.language-selector').addEventListener('change', function() {
+            // Implementation for language switching
+            alert('Language switching functionality will be implemented here');
+        });
+    </script>
+</body>
+</html> 
