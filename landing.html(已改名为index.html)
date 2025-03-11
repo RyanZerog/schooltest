@@ -1,0 +1,6 @@
+<div class="text-center mt-5">
+    <a href="home.html" class="enter-btn">Enter Main Website <i class="fas fa-arrow-right ms-2"></i></a>
+    <div class="chinese mt-2">
+        <p>进入主网站</p>
+    </div>
+</div> 
