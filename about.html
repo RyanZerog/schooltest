@@ -316,6 +316,94 @@
         </div>
     </section>
 
+    <!-- 将整个研究院环境展示部分移到页面前部 -->
+    <!-- 在页面头部之后，其他内容之前插入 -->
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Our Research Environment</h2>
+            <div class="chinese text-center mb-5">
+                <p>我们的研究环境</p>
+            </div>
+            
+            <!-- 展示标签页 - 使用更高优先级的样式 -->
+            <ul class="nav nav-pills mb-4 justify-content-center" id="facilitiesTab" role="tablist">
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link active px-4 py-2" id="campus-tab" data-bs-toggle="pill" data-bs-target="#campus" type="button" role="tab" aria-controls="campus" aria-selected="true" style="background-color: #003366 !important; color: white !important; border: 2px solid #003366 !important; font-weight: bold !important;">Campus</button>
+                </li>
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link px-4 py-2" id="labs-tab" data-bs-toggle="pill" data-bs-target="#labs" type="button" role="tab" aria-controls="labs" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Laboratories</button>
+                </li>
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link px-4 py-2" id="equipment-tab" data-bs-toggle="pill" data-bs-target="#equipment" type="button" role="tab" aria-controls="equipment" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Equipment</button>
+                </li>
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link px-4 py-2" id="events-tab" data-bs-toggle="pill" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Events</button>
+                </li>
+            </ul>
+            
+            <!-- 标签页内容 -->
+            <div class="tab-content" id="facilitiesTabContent">
+                <!-- 校园环境 -->
+                <div class="tab-pane fade show active" id="campus" role="tabpanel" aria-labelledby="campus-tab">
+                    <div class="row g-4" id="campus-images">
+                        <!-- 如果campus文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载校园图片，如果长时间未显示，可能是因为images/campus/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 实验室 -->
+                <div class="tab-pane fade" id="labs" role="tabpanel" aria-labelledby="labs-tab">
+                    <div class="row g-4" id="labs-images">
+                        <!-- 如果laboratories文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载实验室图片，如果长时间未显示，可能是因为images/laboratories/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 设备 -->
+                <div class="tab-pane fade" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
+                    <div class="row g-4" id="equipment-images">
+                        <!-- 如果equipment文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载设备图片，如果长时间未显示，可能是因为images/equipment/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 活动 -->
+                <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                    <div class="row g-4" id="events-images">
+                        <!-- 如果events文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载活动图片，如果长时间未显示，可能是因为images/events/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多图片按钮 -->
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary">查看更多图片</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Mission & Vision -->
     <section class="py-5">
         <div class="container">
@@ -576,92 +664,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 研究院环境展示 -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center">Our Research Environment</h2>
-            <div class="chinese text-center mb-5">
-                <p>我们的研究环境</p>
-            </div>
-            
-            <!-- 展示标签页 - 使用更高优先级的样式 -->
-            <ul class="nav nav-pills mb-4 justify-content-center" id="facilitiesTab" role="tablist">
-                <li class="nav-item m-1" role="presentation">
-                    <button class="nav-link active px-4 py-2" id="campus-tab" data-bs-toggle="pill" data-bs-target="#campus" type="button" role="tab" aria-controls="campus" aria-selected="true" style="background-color: #003366 !important; color: white !important; border: 2px solid #003366 !important; font-weight: bold !important;">Campus</button>
-                </li>
-                <li class="nav-item m-1" role="presentation">
-                    <button class="nav-link px-4 py-2" id="labs-tab" data-bs-toggle="pill" data-bs-target="#labs" type="button" role="tab" aria-controls="labs" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Laboratories</button>
-                </li>
-                <li class="nav-item m-1" role="presentation">
-                    <button class="nav-link px-4 py-2" id="equipment-tab" data-bs-toggle="pill" data-bs-target="#equipment" type="button" role="tab" aria-controls="equipment" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Equipment</button>
-                </li>
-                <li class="nav-item m-1" role="presentation">
-                    <button class="nav-link px-4 py-2" id="events-tab" data-bs-toggle="pill" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Events</button>
-                </li>
-            </ul>
-            
-            <!-- 标签页内容 -->
-            <div class="tab-content" id="facilitiesTabContent">
-                <!-- 校园环境 -->
-                <div class="tab-pane fade show active" id="campus" role="tabpanel" aria-labelledby="campus-tab">
-                    <div class="row g-4" id="campus-images">
-                        <!-- 如果campus文件夹有图片，以下内容将被JavaScript动态替换 -->
-                        <div class="col-12 text-center py-5">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle me-2"></i>
-                                正在加载校园图片，如果长时间未显示，可能是因为images/campus/文件夹中尚未添加图片。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 实验室 -->
-                <div class="tab-pane fade" id="labs" role="tabpanel" aria-labelledby="labs-tab">
-                    <div class="row g-4" id="labs-images">
-                        <!-- 如果laboratories文件夹有图片，以下内容将被JavaScript动态替换 -->
-                        <div class="col-12 text-center py-5">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle me-2"></i>
-                                正在加载实验室图片，如果长时间未显示，可能是因为images/laboratories/文件夹中尚未添加图片。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 设备 -->
-                <div class="tab-pane fade" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
-                    <div class="row g-4" id="equipment-images">
-                        <!-- 如果equipment文件夹有图片，以下内容将被JavaScript动态替换 -->
-                        <div class="col-12 text-center py-5">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle me-2"></i>
-                                正在加载设备图片，如果长时间未显示，可能是因为images/equipment/文件夹中尚未添加图片。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 活动 -->
-                <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-                    <div class="row g-4" id="events-images">
-                        <!-- 如果events文件夹有图片，以下内容将被JavaScript动态替换 -->
-                        <div class="col-12 text-center py-5">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle me-2"></i>
-                                正在加载活动图片，如果长时间未显示，可能是因为images/events/文件夹中尚未添加图片。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 更多图片按钮 -->
-            <div class="text-center mt-5">
-                <a href="#" class="btn btn-primary">查看更多图片</a>
             </div>
         </div>
     </section>
