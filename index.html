@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/unified-navbar.css">
     <link rel="stylesheet" href="css/multi-level-dropdown.css">
+    <script>
+        // 检查用户是否首次访问
+        document.addEventListener('DOMContentLoaded', function() {
+            // 如果用户没有访问过引导页面，则重定向到引导页面
+            if (!localStorage.getItem('hasVisitedLandingPage')) {
+                window.location.href = 'landing.html';
+            }
+        });
+    </script>
     <style>
         /* 修复下拉菜单箭头问题 */
         .dropdown-toggle::after {
