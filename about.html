@@ -580,6 +580,92 @@
         </div>
     </section>
 
+    <!-- 研究院环境展示 -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Our Research Environment</h2>
+            <div class="chinese text-center mb-5">
+                <p>我们的研究环境</p>
+            </div>
+            
+            <!-- 展示标签页 - 使用更高优先级的样式 -->
+            <ul class="nav nav-pills mb-4 justify-content-center" id="facilitiesTab" role="tablist">
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link active px-4 py-2" id="campus-tab" data-bs-toggle="pill" data-bs-target="#campus" type="button" role="tab" aria-controls="campus" aria-selected="true" style="background-color: #003366 !important; color: white !important; border: 2px solid #003366 !important; font-weight: bold !important;">Campus</button>
+                </li>
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link px-4 py-2" id="labs-tab" data-bs-toggle="pill" data-bs-target="#labs" type="button" role="tab" aria-controls="labs" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Laboratories</button>
+                </li>
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link px-4 py-2" id="equipment-tab" data-bs-toggle="pill" data-bs-target="#equipment" type="button" role="tab" aria-controls="equipment" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Equipment</button>
+                </li>
+                <li class="nav-item m-1" role="presentation">
+                    <button class="nav-link px-4 py-2" id="events-tab" data-bs-toggle="pill" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false" style="background-color: #f0f0f0 !important; color: #003366 !important; border: 2px solid #003366 !important; font-weight: bold !important;">Events</button>
+                </li>
+            </ul>
+            
+            <!-- 标签页内容 -->
+            <div class="tab-content" id="facilitiesTabContent">
+                <!-- 校园环境 -->
+                <div class="tab-pane fade show active" id="campus" role="tabpanel" aria-labelledby="campus-tab">
+                    <div class="row g-4" id="campus-images">
+                        <!-- 如果campus文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载校园图片，如果长时间未显示，可能是因为images/campus/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 实验室 -->
+                <div class="tab-pane fade" id="labs" role="tabpanel" aria-labelledby="labs-tab">
+                    <div class="row g-4" id="labs-images">
+                        <!-- 如果laboratories文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载实验室图片，如果长时间未显示，可能是因为images/laboratories/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 设备 -->
+                <div class="tab-pane fade" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
+                    <div class="row g-4" id="equipment-images">
+                        <!-- 如果equipment文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载设备图片，如果长时间未显示，可能是因为images/equipment/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 活动 -->
+                <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                    <div class="row g-4" id="events-images">
+                        <!-- 如果events文件夹有图片，以下内容将被JavaScript动态替换 -->
+                        <div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                正在加载活动图片，如果长时间未显示，可能是因为images/events/文件夹中尚未添加图片。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多图片按钮 -->
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary">查看更多图片</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer (same as in index.html) -->
     <div id="footer-placeholder"></div>
 
@@ -674,6 +760,114 @@
 
         // 防止自动加载header
         window.preventHeaderAutoload = true;
+
+        // 为标签添加活动状态和颜色变化
+        document.querySelectorAll('#facilitiesTab .nav-link').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有标签的活动样式
+                document.querySelectorAll('#facilitiesTab .nav-link').forEach(t => {
+                    t.style.setProperty('background-color', '#f0f0f0', 'important');
+                    t.style.setProperty('color', '#003366', 'important');
+                });
+                
+                // 添加当前标签的活动样式
+                this.style.setProperty('background-color', '#003366', 'important');
+                this.style.setProperty('color', 'white', 'important');
+            });
+        });
+        
+        // 加载图片或显示提示信息
+        function loadImages() {
+            // 校园图片
+            const campusContainer = document.getElementById('campus-images');
+            const campusImages = ['campus1.JPG', 'campus2.JPG', 'campus3.JPG'];
+            
+            // 清空容器
+            campusContainer.innerHTML = '';
+            
+            // 添加每张校园图片
+            campusImages.forEach(img => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                col.innerHTML = `
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/campus/${img}" class="card-img-top" alt="Campus Image" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">校园环境</h5>
+                            <p class="card-text">我们的现代化校园提供了一个宁静而充满灵感的研究环境。</p>
+                        </div>
+                    </div>
+                `;
+                campusContainer.appendChild(col);
+            });
+            
+            // 实验室图片
+            const labsContainer = document.getElementById('labs-images');
+            const labImages = ['laboratory1.JPG', 'laboratory2.JPG', 'laboratory3.JPG'];
+            
+            // 清空容器
+            labsContainer.innerHTML = '';
+            
+            // 添加每张实验室图片
+            labImages.forEach(img => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                col.innerHTML = `
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/laboratories/${img}" class="card-img-top" alt="Laboratory Image" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">实验室设施</h5>
+                            <p class="card-text">我们的现代化实验室配备了先进的研究设备，支持各种科学探索。</p>
+                        </div>
+                    </div>
+                `;
+                labsContainer.appendChild(col);
+            });
+            
+            // 活动图片
+            const eventsContainer = document.getElementById('events-images');
+            const eventImages = ['event1.JPG', 'event2.JPG', 'event3.JPG'];
+            
+            // 清空容器
+            eventsContainer.innerHTML = '';
+            
+            // 添加每张活动图片
+            eventImages.forEach(img => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                col.innerHTML = `
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/events/${img}" class="card-img-top" alt="Event Image" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">活动与会议</h5>
+                            <p class="card-text">我们定期举办学术会议、研讨会和文化活动，促进知识交流与合作。</p>
+                        </div>
+                    </div>
+                `;
+                eventsContainer.appendChild(col);
+            });
+            
+            // 设备图片暂未提供，显示提示信息
+            checkFolderAndDisplayMessage('equipment-images', 'equipment', '研究设备');
+        }
+
+        // 检查文件夹并显示消息
+        function checkFolderAndDisplayMessage(containerId, folderName, displayName) {
+            const container = document.getElementById(containerId);
+            
+            // 这里我们假设其他文件夹没有图片
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        ${displayName}暂未添加图片。请将图片添加到 images/${folderName}/ 文件夹中。
+                    </div>
+                </div>
+            `;
+        }
+
+        // 页面加载完成后执行
+        window.addEventListener('load', loadImages);
     </script>
 </body>
 </html> 
