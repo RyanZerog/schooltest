@@ -101,205 +101,52 @@
         }
         
         .page-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
             background-size: cover;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .section-title {
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-        
-        .text-center .section-title::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .committee-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 0 auto 20px;
-            display: block;
-        }
-        
-        .committee-chair {
-            padding: 40px 30px;
-            background-color: var(--accent-color);
-            border-radius: var(--border-radius);
-            margin-bottom: 50px;
-            box-shadow: var(--box-shadow);
+            padding: 120px 0;
+            margin-bottom: 60px;
             position: relative;
         }
         
-        .committee-chair::before {
-            content: 'Chair';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--primary-color);
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-        
-        .committee-member {
-            padding: 30px 20px;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+        .committee-member-img {
+            width: 100%;
             height: 100%;
+            object-fit: cover;
+            max-height: 300px;
+            border-radius: 10px 0 0 10px;
+        }
+        
+        .committee-bio {
+            text-align: justify;
+            line-height: 1.8;
+        }
+        
+        .committee-stats {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .committee-stats i {
+            color: #003366;
+        }
+        
+        .card {
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
         
-        .committee-member:hover {
-            transform: translateY(-10px);
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 35px;
-            height: 35px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-        
-        .btn {
-            border-radius: 4px;
-            padding: 8px 20px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-        
-        .btn-outline-primary {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .chinese {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 8px;
-        }
-        
-        .page-header .chinese {
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .institution-logo {
-            max-height: 50px;
-            max-width: 100%;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-        
-        .institution-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-        
-        .publication-item {
-            border-left: 3px solid var(--secondary-color);
-            padding-left: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .committee-quote {
-            font-style: italic;
-            color: #666;
-            border-left: 4px solid var(--secondary-color);
-            padding-left: 15px;
-            margin: 20px 0;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding-top: 40px;
-        }
-        
-        footer a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .social-icon {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
+        .card:hover {
+            transform: translateY(-5px);
         }
         
         @media (max-width: 768px) {
-            .page-header {
-                padding: 80px 0;
-            }
-            
-            .committee-img {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .committee-chair::before {
-                font-size: 0.9rem;
+            .committee-member-img {
+                border-radius: 10px 10px 0 0;
+                max-height: 250px;
             }
         }
     </style>
@@ -370,393 +217,184 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <header class="page-header text-center text-white">
         <div class="container">
             <h1>Academic Committee</h1>
-            <div class="chinese">
-                <p>学术委员会</p>
-            </div>
-            <p class="lead mt-4">Distinguished international experts guiding our research vision</p>
-            <div class="chinese">
-                <p>指导我们研究愿景的杰出国际专家</p>
-            </div>
+            <p class="lead">Our distinguished committee of international experts guides the research direction and academic excellence of our institute</p>
         </div>
     </header>
-
-    <!-- Introduction -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h2 class="section-title text-center">About Our Academic Committee</h2>
-                    <p class="text-center">Our Academic Committee consists of internationally renowned scholars and experts who provide strategic guidance and oversight to our research initiatives. These distinguished members bring diverse perspectives and extensive experience from top research institutions around the world, ensuring our research maintains the highest standards of academic excellence and global relevance.</p>
-                    <div class="chinese text-center">
-                        <p>我们的学术委员会由国际知名学者和专家组成，他们为我们的研究计划提供战略指导和监督。这些杰出的成员带来了来自世界各地顶尖研究机构的多元视角和丰富经验，确保我们的研究保持最高标准的学术卓越性和全球相关性。</p>
-                    </div>
-                    
-                    <div class="committee-quote text-center mt-5">
-                        <p>"Our committee is committed to fostering innovative research that addresses the most pressing challenges of our time, while nurturing the next generation of scientific leaders."</p>
-                        <footer class="blockquote-footer">Prof. John Smith, <cite>Committee Chair</cite></footer>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Committee Chair -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 mx-auto">
-                    <div class="committee-chair text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/male/42.jpg" class="committee-img" alt="Committee Chair">
-                        <h3>Prof. David Anderson, Ph.D.</h3>
-                        <p class="text-muted">MIT, USA</p>
-                        <p>Expert in Artificial Intelligence and Machine Learning</p>
-                        <div class="chinese">
-                            <p>人工智能和机器学习专家</p>
-                        </div>
-                        
-                        <p>Professor Anderson is a world-renowned expert in artificial intelligence and machine learning. With over 20 years of research experience at MIT, he has pioneered several groundbreaking technologies that have shaped the field. He has published more than 100 papers in top-tier journals and has been awarded 5 patents for his innovations.</p>
-                        
-                        <div class="chinese mb-4">
-                            <p>Anderson教授是人工智能和机器学习的世界著名专家。他在麻省理工学院拥有超过20年的研究经验，开创了多项改变该领域的突破性技术。他在顶级期刊上发表了100多篇论文，并因其创新获得了5项专利。</p>
-                        </div>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <h5>Research Interests</h5>
-                                <ul class="list-unstyled">
-                                    <li>Artificial Intelligence</li>
-                                    <li>Machine Learning</li>
-                                    <li>AI Ethics and Governance</li>
-                                    <li>Computational Complexity</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Awards & Recognition</h5>
-                                <ul class="list-unstyled">
-                                    <li>National Science Award (2020)</li>
-                                    <li>IEEE Distinguished Research Award (2018)</li>
-                                    <li>ACM Computing Prize (2015)</li>
-                                    <li>Presidential Medal for Technology (2012)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="social-links mt-4">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-google"></i></a>
-                        </div>
-                        
-                        <div class="mt-4">
-                            <a href="profile-anderson.html" class="btn btn-primary">Full Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Committee Members -->
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title text-center">Committee Members</h2>
-            <div class="chinese text-center mb-5">
-                <p>委员会成员</p>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Member 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="committee-member text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/female/32.jpg" class="committee-img" alt="Committee Member">
-                        <h4>Prof. Sarah Chen, Ph.D.</h4>
-                        <p class="text-muted">MIT, USA</p>
-                        <p>Expert in Biotechnology and Genetic Engineering</p>
-                        <div class="chinese">
-                            <p>生物技术和基因工程专家</p>
-                        </div>
-                        
-                        <p class="mt-3">Professor Chen leads groundbreaking research in genetic engineering technologies with applications in personalized medicine and disease treatment.</p>
-                        
-                        <div class="social-links mt-3">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="profile-chen.html" class="btn btn-sm btn-outline-primary">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="committee-member text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/male/67.jpg" class="committee-img" alt="Committee Member">
-                        <h4>Prof. Michael Rodriguez, Ph.D.</h4>
-                        <p class="text-muted">Caltech, USA</p>
-                        <p>Expert in Sustainable Energy and Climate Science</p>
-                        <div class="chinese">
-                            <p>可持续能源和气候科学专家</p>
-                        </div>
-                        
-                        <p class="mt-3">Professor Rodriguez's research focuses on developing innovative renewable energy technologies to address global climate challenges.</p>
-                        
-                        <div class="social-links mt-3">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="profile-rodriguez.html" class="btn btn-sm btn-outline-primary">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="committee-member text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/male/23.jpg" class="committee-img" alt="Committee Member">
-                        <h4>Prof. David Williams, Ph.D.</h4>
-                        <p class="text-muted">Harvard University, USA</p>
-                        <p>Expert in Nanomaterials and Advanced Manufacturing</p>
-                        <div class="chinese">
-                            <p>纳米材料和先进制造专家</p>
-                        </div>
-                        
-                        <p class="mt-3">Professor Williams pioneers research in nanomaterials design and fabrication techniques for next-generation electronics and medical devices.</p>
-                        
-                        <div class="social-links mt-3">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="profile-williams.html" class="btn btn-sm btn-outline-primary">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="committee-member text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/female/45.jpg" class="committee-img" alt="Committee Member">
-                        <h4>Prof. Jennifer Kim, Ph.D.</h4>
-                        <p class="text-muted">UC Berkeley, USA</p>
-                        <p>Expert in Neuroscience and Brain-Computer Interfaces</p>
-                        <div class="chinese">
-                            <p>神经科学和脑机接口专家</p>
-                        </div>
-                        
-                        <p class="mt-3">Professor Kim leads cutting-edge research in neural interfaces, developing technologies that could help treat neurological disorders.</p>
-                        
-                        <div class="social-links mt-3">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="profile-kim.html" class="btn btn-sm btn-outline-primary">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="committee-member text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/male/55.jpg" class="committee-img" alt="Committee Member">
-                        <h4>Prof. Robert Jackson, Ph.D.</h4>
-                        <p class="text-muted">Princeton University, USA</p>
-                        <p>Expert in Data Science and AI Ethics</p>
-                        <div class="chinese">
-                            <p>数据科学和人工智能伦理专家</p>
-                        </div>
-                        
-                        <p class="mt-3">Professor Jackson's research examines the ethical implications of artificial intelligence and promotes responsible AI development frameworks.</p>
-                        
-                        <div class="social-links mt-3">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="profile-jackson.html" class="btn btn-sm btn-outline-primary">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 6 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="committee-member text-center">
-                        <img src="https://xsgames.co/randomusers/assets/avatars/female/55.jpg" class="committee-img" alt="Committee Member">
-                        <h4>Prof. Elizabeth Miller, Ph.D.</h4>
-                        <p class="text-muted">University of Chicago, USA</p>
-                        <p>Expert in Immunology and Vaccine Development</p>
-                        <div class="chinese">
-                            <p>免疫学和疫苗开发专家</p>
-                        </div>
-                        
-                        <p class="mt-3">Professor Miller is a pioneer in vaccine technology, with research focused on developing rapid-response platforms for emerging infectious diseases.</p>
-                        
-                        <div class="social-links mt-3">
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="profile-miller.html" class="btn btn-sm btn-outline-primary">View Profile</a>
-                        </div>
-                    </div>
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>Meet Our Distinguished Committee</h2>
+                    <p class="lead text-muted">Our academic committee consists of world-renowned experts who are leaders in their respective fields, providing strategic guidance and expertise to our research initiatives.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Committee Functions -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center">Committee Functions</h2>
-            <div class="chinese text-center mb-5">
-                <p>委员会职能</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-compass fa-3x text-primary mb-3"></i>
-                            <h4>Strategic Direction</h4>
-                            <p>Guiding the institute's research focus and long-term scientific vision to address emerging challenges and opportunities.</p>
-                            <div class="chinese">
-                                <p>指导研究所的研究重点和长期科学愿景，以应对新兴挑战和机遇。</p>
-                            </div>
-                        </div>
+            <!-- Joe Z. Tsien -->
+            <div class="card mb-5" id="joe-tsien">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="images/professor/qianzhuo.png" alt="Joe Z. Tsien" class="committee-member-img">
                     </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                            <h4>Quality Assurance</h4>
-                            <p>Ensuring that all research conducted at the institute meets the highest standards of scientific rigor and integrity.</p>
-                            <div class="chinese">
-                                <p>确保研究所进行的所有研究都符合最高标准的科学严谨性和诚信。</p>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title">Joe Z. Tsien</h3>
+                            <h5 class="text-primary">Dean of Superintelligence & Precision Health Institute</h5>
+                            
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Neuroscience</span>
+                                <span class="badge bg-primary me-2">Genetic Engineering</span>
+                                <span class="badge bg-primary me-2">Learning & Memory</span>
+                                <span class="badge bg-primary">Intelligence Mechanisms</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
-                            <h4>Global Partnerships</h4>
-                            <p>Facilitating international collaborations and partnerships with leading research institutions and industry partners.</p>
-                            <div class="chinese">
-                                <p>促进与领先研究机构和行业合作伙伴的国际合作。</p>
+                            
+                            <div class="committee-stats mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-graduation-cap me-2"></i> <strong>Education:</strong> Columbia University, MIT</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-landmark me-2"></i> <strong>Former Position:</strong> Princeton University</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-award me-2"></i> <strong>Recognition:</strong> Science Top 10 Breakthrough</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-university fa-3x text-primary mb-3"></i>
-                            <h4>Resource Allocation</h4>
-                            <p>Advising on the allocation of research resources and funding to maximize scientific impact and return on investment.</p>
-                            <div class="chinese">
-                                <p>就研究资源和资金的分配提供建议，以最大化科学影响力和投资回报。</p>
+                            
+                            <div class="committee-bio mb-4">
+                                <p>Professor Joe Z. Tsien is an internationally renowned neuroscientist. Since 1990, he has studied under two Nobel laureates at Columbia University and the Massachusetts Institute of Technology. He pioneered the Cre-lox neurogenetic technology, as well as inducible and brain circuit- and cell-specific gene and protein knockout techniques, which are now widely used in laboratories around the world.</p>
+                                
+                                <p>Professor Joe Z. Tsien is an authority in the field of brain science, particularly in the mechanisms of learning and memory, neural networks, and the principles of intelligence. In 1997, he became the first Chinese professor in the history of the Department of Molecular Biology at Princeton University. In 1999, Professor Qian discovered the gene switch (NR2B) that enhances learning and memory and created the world's first transgenic "smart mouse," named "Duqi." This achievement was published in Nature and was named one of the top ten scientific breakthroughs of the year by Science magazine. It was also praised by Time magazine and The New York Times, with Professor Qian being recognized as the "father of the smart mouse."</p>
+                                
+                                <p>In 2007, Professor Joe Z. Tsien pioneered the "Brain Decoding Project" and served as its principal investigator. This project later inspired similar brain initiatives in Europe and the United States. Under his leadership, the Brain Decoding Team made original breakthroughs in understanding the fundamental mechanisms of brain function. In 2015, Professor Qian proposed the "Connectomics Theory" on brain design and computational principles, which has been experimentally validated across various animal brains and in over a dozen neural circuits. Later, in 2017, he introduced the "Neural Self-Information Theory," focusing on how neural pulses encode perception, cognitive learning, and decision-making in real time, which was experimentally confirmed in 2018. Since its publication in 2016, the academic papers on brain connectomics have been read more than 180,000 times. In January 2019, Forbes magazine recognized it as providing a theoretical framework for the development of artificial general intelligence and brain-like chips, with significant practical guidance.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-user-graduate fa-3x text-primary mb-3"></i>
-                            <h4>Talent Development</h4>
-                            <p>Supporting the recruitment and development of exceptional research talent and fostering the next generation of scientific leaders.</p>
-                            <div class="chinese">
-                                <p>支持杰出研究人才的招募和发展，培养下一代科学领袖。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-search-plus fa-3x text-primary mb-3"></i>
-                            <h4>Program Evaluation</h4>
-                            <p>Conducting periodic reviews of research programs to assess progress, impact, and alignment with the institute's mission.</p>
-                            <div class="chinese">
-                                <p>定期审查研究计划，评估进展、影响和与研究所使命的一致性。</p>
+                            
+                            <div class="committee-contact">
+                                <a href="mailto:joe.tsien@example.edu" class="btn btn-outline-primary me-2"><i class="fas fa-envelope me-1"></i> Contact</a>
+                                <a href="#" class="btn btn-outline-secondary"><i class="fas fa-globe me-1"></i> Personal Website</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Partner Institutions -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center">Partner Institutions</h2>
-            <div class="chinese text-center mb-5">
-                <p>合作机构</p>
+            <!-- Gerwin Schalk -->
+            <div class="card mb-5" id="gerwin-schalk">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="images/professor/gerwin.png" alt="Gerwin Schalk" class="committee-member-img">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title">Gerwin Schalk, Ph.D.</h3>
+                            <h5 class="text-primary">Committee Member</h5>
+                            
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Brain-Computer Interfaces</span>
+                                <span class="badge bg-primary me-2">BCI2000</span>
+                                <span class="badge bg-primary me-2">Brain Mapping</span>
+                                <span class="badge bg-primary">Neurosurgery</span>
+                            </div>
+                            
+                            <div class="committee-stats mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-graduation-cap me-2"></i> <strong>Ph.D.:</strong> Computer & Systems Engineering</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-book me-2"></i> <strong>Publications:</strong> 132 peer-reviewed papers</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-chart-line me-2"></i> <strong>Citations:</strong> 27,000+, H-index: 67</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="committee-bio mb-4">
+                                <p>Dr. Gerwin is a world-renowned scholar in the field of brain-computer interfaces (BCI), ranked among the top five globally. He has made outstanding contributions to neuroscience research. He holds a Master's degree in Electrical Engineering and Computer Science from Graz University of Technology, a Master's degree in Information Technology from Rensselaer Polytechnic Institute, and a Ph.D. in Computer and Systems Engineering.</p>
+                                
+                                <p>His development of the BCI2000 software has become the global standard in brain-computer interface research, laying the foundation for over 2,400 peer-reviewed papers. Additionally, he successfully developed the first novel brain mapping technology for invasive neurosurgical procedures.</p>
+                                
+                                <p>In terms of academic achievements, Dr. Gerwin has published 132 peer-reviewed papers in world-renowned journals such as Nature Neuroscience and Proceedings of the National Academy of Sciences. His works have been cited 27,000 times, with an H-index of 67 (well above the average level of Nobel laureates), and he holds 10 patents. His research is transforming neurosurgical practices worldwide and has made significant contributions to the development of brain-computer interface technology, making him one of the most influential scientists in the field.</p>
+                            </div>
+                            
+                            <div class="committee-contact">
+                                <a href="mailto:gerwin.schalk@example.edu" class="btn btn-outline-primary me-2"><i class="fas fa-envelope me-1"></i> Contact</a>
+                                <a href="#" class="btn btn-outline-secondary"><i class="fas fa-globe me-1"></i> Personal Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="row align-items-center text-center g-4">
-                <div class="col-6 col-md-4 col-lg-2">
-                    <img src="https://via.placeholder.com/150x50?text=Stanford" class="institution-logo" alt="Stanford">
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <img src="https://via.placeholder.com/150x50?text=MIT" class="institution-logo" alt="MIT">
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <img src="https://via.placeholder.com/150x50?text=Caltech" class="institution-logo" alt="Caltech">
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <img src="https://via.placeholder.com/150x50?text=Harvard" class="institution-logo" alt="Harvard">
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <img src="https://via.placeholder.com/150x50?text=Berkeley" class="institution-logo" alt="Berkeley">
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <img src="https://via.placeholder.com/150x50?text=Princeton" class="institution-logo" alt="Princeton">
+
+            <!-- Jin-Xiong She -->
+            <div class="card mb-5" id="jin-xiong-she">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="images/professor/shejinxiong.png" alt="Jin-Xiong She" class="committee-member-img">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title">Jin-Xiong She, Ph.D.</h3>
+                            <h5 class="text-primary">Committee Member</h5>
+                            
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Genetics</span>
+                                <span class="badge bg-primary me-2">Genomic Medicine</span>
+                                <span class="badge bg-primary me-2">Precision Medicine</span>
+                                <span class="badge bg-primary">Anti-aging Research</span>
+                            </div>
+                            
+                            <div class="committee-stats mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-building me-2"></i> <strong>Company:</strong> Jinfiniti Precision Medicine</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-book me-2"></i> <strong>Publications:</strong> 400+ articles</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><i class="fas fa-chart-line me-2"></i> <strong>Citations:</strong> 18,000+, H-index: 76</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="committee-bio mb-4">
+                                <p>Professor Jin-Xiong She is an internationally renowned expert in genetics and genomic medicine. After being forced to leave the Medical College of Georgia in 2021 due to the "China Action Plan," he has continued his research on aging mechanisms and anti-aging solutions at the precision medicine company he founded, Jinfiniti Precision Medicine, Inc., where he serves as the founder and CEO (since 2016).</p>
+                                
+                                <p>In academia, he held several important positions at the Medical College of Georgia, including founding director of the Biotechnology and Genomic Medicine Center (2002-2021), chair of the Department of Pathology (2002-2017), and professor of Obstetrics and Gynecology (2017-2021). He was also an esteemed scholar at the Georgia Research Alliance (GRA).</p>
+                                
+                                <p>Professor She led the establishment of the genomics "public facility platform" (2002-2021) and the proteomics and mass spectrometry "public facility platform" (2003-2021), driving the development of interdisciplinary technological platforms. Prior to this, he held key positions at the University of Florida College of Medicine (1991-2002), including assistant professor, associate professor, and full professor in the Department of Pathology, director of the Mammalian Genetics Center's DNA Sequencing "Public Facility Platform," and director of the NIDDK Biotechnology Center, establishing his academic reputation in the fields of diabetes and immunogenetics.</p>
+                                
+                                <p>Professor She has published over 400 academic articles, with more than 18,000 citations. His Google H-index is 76, and his i10-index is 240. He is one of the 20 most influential scientists in Georgia, USA, and serves as the editor-in-chief or editorial board member for several renowned international academic journals. He has also served as president of the American Chinese Society of Genetics and the chair of the Immunology and Immunogenetics Section of the American Diabetes Association.</p>
+                            </div>
+                            
+                            <div class="committee-contact">
+                                <a href="mailto:jinxiong.she@example.edu" class="btn btn-outline-primary me-2"><i class="fas fa-envelope me-1"></i> Contact</a>
+                                <a href="#" class="btn btn-outline-secondary"><i class="fas fa-globe me-1"></i> Personal Website</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section class="py-5" style="background-color: var(--primary-color); color: white;">
+    <section class="py-5 bg-light">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mb-4 mb-lg-0">
-                    <h2>Interested in Collaborating with Our Committee?</h2>
-                    <p class="lead">Our academic committee welcomes opportunities for collaboration with researchers and institutions worldwide</p>
-                    <div class="chinese mb-3">
-                        <p>我们的学术委员会欢迎与全球研究人员和机构合作的机会</p>
-                    </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2>Collaborate With Our Academic Committee</h2>
+                    <p class="lead">Our committee welcomes opportunities for collaboration with researchers and institutions globally</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
+                    <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
                 </div>
             </div>
         </div>

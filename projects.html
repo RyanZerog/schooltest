@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Projects | Academic Research Institute</title>
+    <title>Research Projects | Superintelligence & Precision Health Institute</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -22,101 +22,128 @@
         }
         
         .page-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80') no-repeat center center;
             background-size: cover;
-            color: white;
             padding: 100px 0;
-            text-align: center;
+            margin-bottom: 60px;
         }
         
         .project-card {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            height: 100%;
+            border: none;
+            border-radius: 12px;
             overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
-        .project-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+        .project-card .card-body {
+            padding: 25px;
         }
         
-        .project-meta {
+        .project-card .card-title {
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .project-card .card-text {
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .researcher-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .researcher-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid #f8f9fa;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .researcher-name {
+            font-weight: 600;
+            color: #003366;
+            margin-bottom: 5px;
+        }
+        
+        .researcher-title {
             color: #666;
             font-size: 0.9rem;
         }
         
-        .badge-funding {
-            background-color: #28a745;
+        .project-filter {
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 2px solid #003366;
+            background: transparent;
+            color: #003366;
+            font-weight: 500;
+            margin: 0 5px 10px;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #003366;
             color: white;
         }
         
-        .badge-collaboration {
-            background-color: #6f42c1;
+        .language-switch {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+        
+        .lang-btn {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid white;
+            background: rgba(255,255,255,0.2);
             color: white;
+            margin-left: 5px;
+            transition: all 0.3s;
         }
         
-        .badge-ongoing {
-            background-color: #0066cc;
-            color: white;
+        .lang-btn.active {
+            background: white;
+            color: #003366;
+            font-weight: 500;
         }
         
-        .badge-completed {
-            background-color: #6c757d;
-            color: white;
+        .en-content, .zh-content {
+            display: none;
         }
         
-        /* 修复下拉菜单箭头问题 */
-        .dropdown-toggle::after {
-            display: inline-block !important;
-            margin-left: 0.255em !important;
-            vertical-align: 0.255em !important;
-            content: "" !important;
-            border-top: 0.3em solid !important;
-            border-right: 0.3em solid transparent !important;
-            border-bottom: 0 !important;
-            border-left: 0.3em solid transparent !important;
-            position: static !important;
-            width: auto !important;
-            height: auto !important;
-            background-color: transparent !important;
-            transform: none !important;
-            transition: none !important;
-            left: auto !important;
-        }
-        
-        /* 为导航链接单独设置样式，不影响下拉箭头 */
-        .nav-link:not(.dropdown-toggle)::after {
-            content: '' !important;
-            position: absolute !important;
-            width: 0 !important;
-            height: 2px !important;
-            bottom: 0 !important;
-            left: 50% !important;
-            background-color: white !important;
-            transition: all 0.3s ease !important;
-            transform: translateX(-50%) !important;
-        }
-        
-        .nav-link:not(.dropdown-toggle):hover::after {
-            width: 100% !important;
+        .en-content.active, .zh-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- 导航栏 -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" height="50">
-                <span class="ms-2">Academic Research Institute</span>
+                <span class="ms-2">Superintelligence & Precision Health Institute</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -130,374 +157,279 @@
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
                             Research
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="research-areas.html">Research Areas</a></li>
+                            <li><a class="dropdown-item active" href="projects.html">Research Projects</a></li>
                             <li><a class="dropdown-item" href="publications.html">Publications</a></li>
-                            <li><a class="dropdown-item active" href="projects.html">Projects</a></li>
+                            <li><a class="dropdown-item" href="facilities.html">Facilities</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="academic-committee.html">Academic Committee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="news.html">News & Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                        <a class="nav-link" href="news.html">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
-                <select class="ms-3 language-selector">
-                    <option value="en">English</option>
-                    <option value="zh">中文</option>
-                </select>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
+    <!-- 页面头部 -->
+    <header class="page-header text-center text-white position-relative">
+        <div class="language-switch">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
         <div class="container">
             <h1>Research Projects</h1>
-            <p class="lead">Exploring the frontiers of knowledge through innovative research</p>
-            <div class="chinese">
-                <h2>研究项目</h2>
-                <p>通过创新研究探索知识前沿</p>
-            </div>
+            <p class="lead">Exploring the frontiers of science to solve humanity's greatest challenges</p>
         </div>
     </header>
 
-    <!-- Project Categories -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2>Our Focus Areas</h2>
-                <div class="chinese mb-4">
-                    <p>我们的重点研究领域</p>
-                </div>
-                <div class="d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-outline-primary m-2 filter-btn active" data-filter="all">All Projects</button>
-                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="ai-computing">AI & Computing</button>
-                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="biotech-medical">Biotech & Medical</button>
-                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="energy-environment">Energy & Environment</button>
-                    <button class="btn btn-outline-primary m-2 filter-btn" data-filter="materials-science">Materials Science</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Projects -->
+    <!-- 项目内容 -->
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="chinese mb-4">
-                <p>精选项目</p>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Project 1 -->
-                <div class="col-md-6 col-lg-4 project-item" data-category="ai-computing">
-                    <div class="project-card">
-                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge badge-ongoing">Ongoing</span>
-                                <span class="project-meta">2021-2024</span>
-                            </div>
-                            <h5>Quantum Machine Learning for Drug Discovery</h5>
-                            <p class="project-meta">
-                                <strong>Principal Investigator:</strong> Prof. Jennifer Smith<br>
-                                <strong>Funding:</strong> National Science Foundation
-                            </p>
-                            <p>Development of quantum algorithms to accelerate drug discovery and design processes, with applications in treatment of neurodegenerative diseases.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
-                                <span class="badge badge-funding">₹2.5 Crore</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="col-md-6 col-lg-4 project-item" data-category="biotech-medical">
-                    <div class="project-card">
-                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge badge-ongoing">Ongoing</span>
-                                <span class="project-meta">2022-2025</span>
-                            </div>
-                            <h5>CRISPR-Based Diagnostic Tools for Infectious Diseases</h5>
-                            <p class="project-meta">
-                                <strong>Principal Investigator:</strong> Dr. Michael Chen<br>
-                                <strong>Funding:</strong> Ministry of Health
-                            </p>
-                            <p>Development of rapid, accurate, and affordable diagnostic tools for infectious diseases using CRISPR-Cas technology.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
-                                <span class="badge badge-collaboration">Collaboration</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="col-md-6 col-lg-4 project-item" data-category="energy-environment">
-                    <div class="project-card">
-                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge badge-ongoing">Ongoing</span>
-                                <span class="project-meta">2022-2024</span>
-                            </div>
-                            <h5>Next-Generation Solar Cells with Enhanced Efficiency</h5>
-                            <p class="project-meta">
-                                <strong>Principal Investigator:</strong> Dr. Sarah Johnson<br>
-                                <strong>Funding:</strong> Department of Energy
-                            </p>
-                            <p>Research and development of perovskite solar cells with improved stability and efficiency for broader commercial applications.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
-                                <span class="badge badge-funding">₹1.8 Crore</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="col-md-6 col-lg-4 project-item" data-category="materials-science">
-                    <div class="project-card">
-                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge badge-completed">Completed</span>
-                                <span class="project-meta">2020-2022</span>
-                            </div>
-                            <h5>Self-Healing Composite Materials for Infrastructure</h5>
-                            <p class="project-meta">
-                                <strong>Principal Investigator:</strong> Prof. Robert Miller<br>
-                                <strong>Funding:</strong> Department of Transportation
-                            </p>
-                            <p>Development of advanced composite materials with self-healing properties for more durable and sustainable infrastructure applications.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
-                                <span class="badge badge-funding">₹1.2 Crore</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 -->
-                <div class="col-md-6 col-lg-4 project-item" data-category="ai-computing">
-                    <div class="project-card">
-                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge badge-ongoing">Ongoing</span>
-                                <span class="project-meta">2021-2023</span>
-                            </div>
-                            <h5>Energy-Efficient Neural Processing Units</h5>
-                            <p class="project-meta">
-                                <strong>Principal Investigator:</strong> Prof. David Liu<br>
-                                <strong>Funding:</strong> Ministry of Electronics & IT
-                            </p>
-                            <p>Designing specialized hardware accelerators for neural networks with 80% lower energy consumption for edge computing applications.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
-                                <span class="badge badge-collaboration">Industry Partnership</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 6 -->
-                <div class="col-md-6 col-lg-4 project-item" data-category="biotech-medical">
-                    <div class="project-card">
-                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80');"></div>
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge badge-completed">Completed</span>
-                                <span class="project-meta">2019-2022</span>
-                            </div>
-                            <h5>Microbiome Engineering for Gut Health</h5>
-                            <p class="project-meta">
-                                <strong>Principal Investigator:</strong> Dr. Elena Rodriguez<br>
-                                <strong>Funding:</strong> Ministry of Health
-                            </p>
-                            <p>Investigating the role of gut microbiome in inflammatory diseases and developing targeted microbial interventions for treatment.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="project-detail.html" class="btn btn-sm btn-outline-primary">Learn More</a>
-                                <span class="badge badge-funding">₹1.5 Crore</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2>Our Cutting-Edge Research</h2>
+                    <p class="lead text-muted">Driving innovation through collaborative and interdisciplinary approaches</p>
                 </div>
             </div>
-            
-            <div class="text-center mt-5">
-                <a href="all-projects.html" class="btn btn-primary">View All Projects</a>
+
+            <div class="project-filter text-center">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="brain">Brain Science</button>
+                <button class="filter-btn" data-filter="health">Precision Health</button>
+                <button class="filter-btn" data-filter="ai">Artificial Intelligence</button>
+            </div>
+
+            <div class="row">
+                <!-- Joe Z. Tsien (钱卓) 研究项目 -->
+                <div class="col-lg-12 mb-5 project-item brain ai">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <div class="researcher-info">
+                                <img src="images/professor/qianzhuo.png" alt="Joe Z. Tsien" class="researcher-img">
+                                <div>
+                                    <h5 class="researcher-name">Joe Z. Tsien</h5>
+                                    <p class="researcher-title">Dean of Superintelligence & Precision Health Institute</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="card-title">Brain Decoding and Connectome Theory</h3>
+                            
+                            <div class="zh-content active">
+                                <p class="card-text">钱卓教授是国际知名的脑科学家，曾师从诺贝尔奖得主，他在遗传与基因工程领域的贡献尤为显著，开发了Cre-lox神经遗传技术及基因和蛋白敲除技术。教授在学习与记忆机制的研究中，于1999年发现了关键的基因开关NR2B，并创建了转基因聪明鼠，这一成果引起了广泛关注。</p>
+                                
+                                <p class="card-text">此外，钱教授还启动了大脑破译计划，提出了"连接论"和"神经自我信息论"，为理解大脑功能提供了新的理论框架。其研究成果不仅获得了多项科学奖项与荣誉，还推动了国内多个研究机构的建立，并在吸毒筛查技术与人工智能无人驾驶领域发挥了重要作用，致力于推动中国脑科学及生命科学的发展。</p>
+                            </div>
+                            
+                            <div class="en-content">
+                                <p class="card-text">Professor Joe Z. Tsien is an internationally renowned neuroscientist who studied under a Nobel Prize laureate. He has made significant contributions in the fields of genetics and genetic engineering, developing the Cre-lox neural genetic technology and gene and protein knockout techniques. In his research on the mechanisms of learning and memory, he discovered the key gene switch NR2B in 1999 and created transgenic "smart mice," which garnered widespread attention.</p>
+                                
+                                <p class="card-text">Additionally, Professor Tsien initiated the Brain Decoding Project, proposing the "connectome theory" and "neural self-information theory," providing a new theoretical framework for understanding brain function. His research achievements have received numerous scientific awards and honors, facilitated the establishment of several research institutions in China, and played a vital role in drug screening technologies and artificial intelligence in autonomous driving, contributing to the advancement of neuroscience and life sciences in China.</p>
+                            </div>
+                            
+                            <a href="academic-committee.html#joe-tsien" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gerwin Schalk 研究项目 -->
+                <div class="col-lg-12 mb-5 project-item brain ai">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <div class="researcher-info">
+                                <img src="images/professor/gerwin.png" alt="Gerwin Schalk" class="researcher-img">
+                                <div>
+                                    <h5 class="researcher-name">Gerwin Schalk, Ph.D.</h5>
+                                    <p class="researcher-title">Committee Member</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="card-title">Brain-Computer Interfaces (BCI) and Neural Signal Processing</h3>
+                            
+                            <div class="zh-content active">
+                                <p class="card-text">脑机接口（BCI）领域正处于快速发展的阶段，成为神经科学和临床医学研究的前沿。特别是我国将其纳入十三五规划的科技创新重点项目之一，显示出对该领域深远的战略重视。通过信号获取与分析、软件工具开发、侵入性手术技术创新和临床应用的综合方法，深入探讨大脑功能机制，并设计新型临床工具以改善神经系统疾病的诊断与治疗效果。</p>
+                                
+                                <p class="card-text">我们将利用脑皮层电图信号进行系统的神经科学研究，结合解剖学与行为测量，分析复杂数据集。同时，采用C++、Matlab和Python等编程语言开发BCI2000等软件工具，作为全球脑机接口研究的标准，并融入机器学习与信号处理技术以优化数据分析流程。此外，我们还将开发新型脑图谱技术，提高侵入性脑外科手术的安全性与有效性，并积极推动研究成果的商业化，以促进神经外科实践的转变，最终改善患者的治疗体验与效果。</p>
+                                
+                                <p class="card-text">通过本研究，我们希望不仅能在基础科学层面上获得突破性进展，还能在临床应用上实现重大创新，从而改变人们对大脑及其功能的认知，为未来的神经科学研究和神经外科实践提供新的动力。</p>
+                            </div>
+                            
+                            <div class="en-content">
+                                <p class="card-text">The field of Brain-Computer Interfaces (BCI) is rapidly evolving, becoming a frontier in neuroscience and clinical medical research. Notably, it has been incorporated into China's 13th Five-Year Plan as a key project for technological innovation, highlighting the strategic importance placed on this area. This research aims to comprehensively explore the mechanisms of brain function and design new clinical tools to improve the diagnosis and treatment of neurological disorders through a combined approach involving signal acquisition and analysis, software tool development, innovative invasive surgical techniques, and clinical applications.</p>
+                                
+                                <p class="card-text">We will utilize electrocorticography (ECoG) signals for systematic neuroscience research, integrating anatomical and behavioral measurements to analyze complex datasets. Moreover, we will develop BCI2000 and other software tools using programming languages such as C++, Matlab, and Python, establishing them as global standards for BCI research while incorporating machine learning and signal processing techniques to optimize data analysis workflows. Additionally, we aim to create novel brain mapping technologies to enhance the safety and effectiveness of invasive neurosurgery and actively promote the commercialization of research results to transform neurosurgical practices, ultimately improving patient treatment experiences and outcomes.</p>
+                                
+                                <p class="card-text">Through this research, we hope to achieve not only groundbreaking advancements in basic science but also significant innovations in clinical applications, fundamentally altering the understanding of the brain and its functions, and providing new impetus for future neuroscience research and neurosurgical practices.</p>
+                            </div>
+                            
+                            <a href="academic-committee.html#gerwin-schalk" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jin-Xiong She 研究项目 -->
+                <div class="col-lg-12 mb-5 project-item health">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <div class="researcher-info">
+                                <img src="images/professor/shejinxiong.png" alt="Jin-Xiong She" class="researcher-img">
+                                <div>
+                                    <h5 class="researcher-name">Jin-Xiong She, Ph.D.</h5>
+                                    <p class="researcher-title">Committee Member</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="card-title">Diabetes, Cancer Research and Biomarkers</h3>
+                            
+                            <div class="zh-content active">
+                                <p class="card-text">佘金雄教授的研究主要集中在糖尿病、癌症以及相关生物标志物的探索与应用上。他在1型糖尿病的环境诱导机制和生物标志物的识别方面进行了深入研究，推动了科学界对糖尿病的理解和预防工作。通过高通量糖缀合物芯片技术，教授致力于开发新兴检测平台，以便快速、精准地分析糖结合蛋白和抗体的动态变化。这项技术已成为研究糖尿病及其并发症的重要工具。</p>
+                                
+                                <p class="card-text">此外，教授在癌症领域的研究也同样卓著，开发了针对癌症的单克隆抗体和新型免疫治疗策略，旨在提升癌症患者的治疗效果。神经科学和癌症治疗的交叉点上，佘教授的研究探索了糖尿病与癌症之间的潜在联系，揭示了代谢综合征对肿瘤进展的影响。通过跨学科的整合，佘金雄教授不仅推动了基础科研的发展，还致力于将研究成果转化为临床应用，改善患者的健康状况和生活质量。</p>
+                            </div>
+                            
+                            <div class="en-content">
+                                <p class="card-text">Professor Jin-Xiong She focuses his research mainly on the exploration and application of diabetes, cancer, and related biomarkers. He has conducted in-depth studies on the environmental mechanisms that induce type 1 diabetes and the identification of biomarkers, advancing the scientific community's understanding and prevention efforts regarding diabetes. Through high-throughput glycan microarray technology, he aims to develop emerging detection platforms for the rapid and precise analysis of dynamic changes in glycoproteins and antibodies. This technology has become an important tool for studying diabetes and its complications.</p>
+                                
+                                <p class="card-text">In addition, Professor She has made remarkable contributions to cancer research, developing monoclonal antibodies and novel immunotherapy strategies aimed at improving treatment outcomes for cancer patients. At the intersection of neuroscience and cancer treatment, his research explores the potential links between diabetes and cancer, revealing how metabolic syndrome influences tumor progression. By integrating interdisciplinary approaches, Professor Jin-Xiong She not only advances fundamental research but also focuses on translating research findings into clinical applications, thereby improving patient health and quality of life.</p>
+                            </div>
+                            
+                            <a href="academic-committee.html#jin-xiong-she" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Research Impact -->
+    <!-- 合作部分 -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title">Research Impact</h2>
-            <div class="chinese mb-4">
-                <p>研究影响</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="display-4 text-primary mb-2">₹8.6+ Cr</div>
-                    <p class="lead">Grant Funding Secured</p>
-                    <div class="chinese">
-                        <p>获得研究资助</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="display-4 text-primary mb-2">18</div>
-                    <p class="lead">Active Research Projects</p>
-                    <div class="chinese">
-                        <p>进行中的研究项目</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="display-4 text-primary mb-2">12</div>
-                    <p class="lead">Industry Partnerships</p>
-                    <div class="chinese">
-                        <p>产业合作伙伴</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="display-4 text-primary mb-2">9</div>
-                    <p class="lead">Patents Filed</p>
-                    <div class="chinese">
-                        <p>申请专利</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Funding Opportunities -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">Funding Opportunities</h2>
-            <div class="chinese mb-4">
-                <p>资助机会</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Graduate Student Research Grants</h5>
-                            <p class="text-muted mb-3">Deadline: March 15, 2023</p>
-                            <p>Funding available for graduate students to conduct independent research under faculty supervision in any of our focus areas.</p>
-                            <div class="chinese mb-3">
-                                <p>为研究生提供在我们研究领域的任何方向开展研究的资助。</p>
-                            </div>
-                            <ul class="mb-4">
-                                <li>Duration: 1 year</li>
-                                <li>Funding amount: Up to ₹5 lakhs</li>
-                                <li>Eligibility: Currently enrolled graduate students</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Industry-Academia Collaborative Grants</h5>
-                            <p class="text-muted mb-3">Deadline: Rolling applications</p>
-                            <p>Support for collaborative research projects between our faculty and industry partners addressing real-world challenges.</p>
-                            <div class="chinese mb-3">
-                                <p>支持我们的教师与行业合作伙伴之间的合作研究项目，解决实际挑战。</p>
-                            </div>
-                            <ul class="mb-4">
-                                <li>Duration: 1-3 years</li>
-                                <li>Funding amount: Up to ₹50 lakhs (matching funds required)</li>
-                                <li>Eligibility: Faculty members with industry partnerships</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-5" style="background-color: var(--primary-color); color: white;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mb-4 mb-lg-0">
-                    <h2>Interested in Collaborating on a Research Project?</h2>
-                    <p class="lead">We welcome collaboration opportunities with researchers, institutions, and industry partners</p>
-                    <div class="chinese mb-3">
-                        <p>我们欢迎与研究人员、机构和行业合作伙伴的合作机会</p>
-                    </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2>Interested in Collaborating?</h2>
+                    <p class="lead">We welcome partnerships with researchers, institutions, and industry leaders</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="collaboration.html" class="btn btn-light btn-lg">Explore Opportunities</a>
+                    <a href="collaboration.html" class="btn btn-primary btn-lg">Explore Opportunities</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Superintelligence & Precision Health Institute</h5>
+                    <p>Advancing frontiers of science through collaborative, interdisciplinary research</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Research</a></li>
+                        <li><a href="academic-committee.html">Academic Committee</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Science Avenue, Beijing, China</p>
+                        <p><i class="fas fa-phone me-2"></i> +86 10 1234 5678</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@sphi.edu.cn</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Superintelligence & Precision Health Institute. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white">Privacy Policy</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/load-footer.js"></script>
     <script>
-        // Language switcher functionality
-        document.querySelector('.language-selector').addEventListener('change', function() {
-            // Implementation for language switching
-            alert('Language switching functionality will be implemented here');
+        // 语言切换功能
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // 移除所有按钮的active类
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // 为当前按钮添加active类
+                this.classList.add('active');
+                
+                // 显示选定语言的内容
+                if (lang === 'zh') {
+                    document.querySelectorAll('.zh-content').forEach(content => {
+                        content.classList.add('active');
+                    });
+                    document.querySelectorAll('.en-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                } else {
+                    document.querySelectorAll('.en-content').forEach(content => {
+                        content.classList.add('active');
+                    });
+                    document.querySelectorAll('.zh-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                }
+            });
         });
-
-        // Project filter functionality
+        
+        // 项目过滤功能
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active class from all buttons
+                const filter = this.getAttribute('data-filter');
+                
+                // 移除所有按钮的active类
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 
-                // Add active class to clicked button
+                // 为当前按钮添加active类
                 this.classList.add('active');
                 
-                // Get filter value
-                const filter = this.getAttribute('data-filter');
-                
-                // Show all items if filter is 'all'
-                if (filter === 'all') {
-                    document.querySelectorAll('.project-item').forEach(item => {
+                // 显示选定类别的项目
+                document.querySelectorAll('.project-item').forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
                         item.style.display = 'block';
-                    });
-                } else {
-                    // Show/hide items based on category
-                    document.querySelectorAll('.project-item').forEach(item => {
-                        if (item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
