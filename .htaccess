@@ -1,0 +1,2 @@
+# 设置welcome.html为默认页面
+DirectoryIndex welcome.html index.html 

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到学术研究院 | Welcome to Academic Research Institute</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --accent-color: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(135deg, rgba(245, 247, 250, 0.9) 0%, rgba(195, 207, 226, 0.8) 100%);
+            z-index: -1;
+        }
+        
+        .welcome-container {
+            flex: 1;
+            padding: 20px 0;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .welcome-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            padding: 0;
+            width: 100%;
+        }
+        
+        .welcome-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1501772419-b9e8458c5d61?ixlib=rb-4.0.3&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .welcome-header h1 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .welcome-header .lead {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .welcome-body {
+            padding: 25px;
+        }
+        
+        .question-card {
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            padding: 20px;
+            height: 100%;
+            background-color: white;
+            border-left: 4px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .question-card::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0, 102, 204, 0.03);
+            border-radius: 50%;
+            right: -50px;
+            bottom: -50px;
+            z-index: -1;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .question-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+        
+        .question-en-title {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+        
+        .btn-question {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+            border-radius: 30px;
+            padding: 8px 15px;
+            transition: var(--transition);
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-question:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .btn-enter {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.2);
+        }
+        
+        .btn-enter:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 51, 102, 0.3);
+        }
+        
+        .institute-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+        
+        .description-cn {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .description-en {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .card-icon {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .row-cards {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        
+        /* 减少留白的额外样式 */
+        .container-fluid {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        .col-xl-11 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .g-2 {
+            --bs-gutter-x: 0.75rem;
+            --bs-gutter-y: 0.75rem;
+        }
+        
+        @media (min-width: 1200px) {
+            .container-xl {
+                max-width: 96%;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .welcome-container {
+                padding: 10px 0;
+            }
+            
+            .welcome-body {
+                padding: 15px;
+            }
+            
+            .question-card {
+                margin-bottom: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="welcome-card">
+                        <div class="welcome-header">
+                            <img src="https://api.dicebear.com/6.x/initials/svg?seed=ARI" alt="Institute Logo" class="institute-logo">
+                            <h1>欢迎来到学术研究院</h1>
+                            <p class="lead mb-0">Welcome to Academic Research Institute</p>
+                            <p class="mt-2 mb-0">探索前沿研究，寻找科学答案 | Explore Cutting-Edge Research, Find Scientific Answers</p>
+                        </div>
+                        
+                        <div class="welcome-body">
+                            <div class="text-center mb-3">
+                                <h2>您对以下哪些研究领域感兴趣？</h2>
+                                <p class="text-muted">Which research areas interest you? | 请选择您感兴趣的研究问题，或直接进入我们的网站</p>
+                            </div>
+                            
+                            <div class="row g-2 row-cards">
+                                <!-- 问题卡片 1 -->
+                                <div class="col-md-6">
+                                    <div class="question-card">
+                                        <h4 class="question-title"><i class="fas fa-atom card-icon"></i>量子计算如何改变材料科学？</h4>
+                                        <h5 class="question-en-title">How Quantum Computing is Transforming Materials Science?</h5>
+                                        <p class="description-cn">探索量子算法如何加速新材料的发现和优化。</p>
+                                        <p class="description-en">Explore how quantum algorithms accelerate the discovery and optimization of new materials.</p>
+                                        <a href="research-areas.html" class="btn btn-question">探索量子计算研究 | Explore Quantum Research <i class="fas fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <!-- 问题卡片 2 -->
+                                <div class="col-md-6">
+                                    <div class="question-card">
+                                        <h4 class="question-title"><i class="fas fa-brain card-icon"></i>人工智能如何增强脑科学研究？</h4>
+                                        <h5 class="question-en-title">How AI Enhances Brain Science Research?</h5>
+                                        <p class="description-cn">了解如何使用机器学习分析复杂的神经数据。</p>
+                                        <p class="description-en">Learn how machine learning analyzes complex neural data for better understanding.</p>
+                                        <a href="research-brain-science.html" class="btn btn-question">探索脑科学研究 | Explore Brain Science <i class="fas fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <!-- 问题卡片 3 -->
+                                <div class="col-md-6">
+                                    <div class="question-card">
+                                        <h4 class="question-title"><i class="fas fa-solar-panel card-icon"></i>可持续能源技术的最新突破</h4>
+                                        <h5 class="question-en-title">Latest Breakthroughs in Sustainable Energy</h5>
+                                        <p class="description-cn">探索太阳能、风能、氢能等可再生能源领域的创新技术。</p>
+                                        <p class="description-en">Explore innovations in solar, wind, and hydrogen energy technologies.</p>
+                                        <a href="projects.html" class="btn btn-question">了解能源研究项目 | Energy Research Projects <i class="fas fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <!-- 问题卡片 4 -->
+                                <div class="col-md-6">
+                                    <div class="question-card">
+                                        <h4 class="question-title"><i class="fas fa-dna card-icon"></i>前沿生物技术如何解决健康难题？</h4>
+                                        <h5 class="question-en-title">How Cutting-Edge Biotechnology Solves Health Challenges?</h5>
+                                        <p class="description-cn">发现基因编辑和精准医疗如何改变疾病诊断与治疗。</p>
+                                        <p class="description-en">Discover how gene editing and precision medicine transform healthcare.</p>
+                                        <a href="publications.html" class="btn btn-question">阅读相关研究成果 | Read Research Results <i class="fas fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <a href="index.html" class="btn btn-enter btn-lg">进入研究院主页 | Enter Institute Homepage <i class="fas fa-angle-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 记录用户已访问过引导页
+        localStorage.setItem('visited', 'true');
+    </script>
+</body>
+</html> 
